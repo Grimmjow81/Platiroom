@@ -6564,6 +6564,18 @@
     "T": [1, 7, 8, 6],
     "G": "https://psnprofiles.com/guide/15096"
   },
+  "BAR ステラアビス (NPWR39155)": {
+    "R": [6, 1, 100, 0],
+    "T": [1, 4, 8, 28],
+    "G": "https://psnprofiles.com/guide/25001",
+    "W": "https://psnprofiles.com/guide/25014"
+  },
+  "BAR ステラアビス (NPWR39157)": {
+    "R": [6, 1, 100, 0],
+    "T": [1, 4, 8, 28],
+    "G": "https://psnprofiles.com/guide/25001",
+    "W": "https://psnprofiles.com/guide/25014"
+  },
   "Baradroid (NPWR56667)": {
     "R": [1, 1, 1, 0],
     "T": [1, 11, 0, 0],
@@ -16378,7 +16390,7 @@
     "T": [1, 2, 6, 46],
     "G": "https://psnprofiles.com/guide/20957",
     "Inhuman Bondage DLC": {
-      "R": [5, 10, 15, 0],
+      "R": [5, 10, 15, 2],
       "T": [0, 0, 0, 12],
       "G": "https://psnprofiles.com/guide/24940"
     },
@@ -16393,7 +16405,7 @@
     "T": [1, 2, 6, 46],
     "G": "https://psnprofiles.com/guide/20957",
     "Inhuman Bondage DLC": {
-      "R": [5, 10, 15, 0],
+      "R": [5, 10, 15, 2],
       "T": [0, 0, 0, 12],
       "G": "https://psnprofiles.com/guide/24940"
     },
@@ -22604,6 +22616,11 @@
     "G2": "https://www.playstationtrophies.org/game/dragon-quest-heroes-anryuu-to-sekaju-no-shiro/guide/",
     "G3": "https://www.playstationtrophies.org/game/dragon-quest-heroes-ps4/guide/"
   },
+  "Dragon Quest Heroes: Torneko‘s Mystery Dungeon (NPWR59114)": {
+    "R": [6, 50, 150, 2],
+    "T": [1, 6, 9, 11],
+    "G": "https://psnprofiles.com/guide/26221"
+  },
   "Dragon Quest I & II HD-2D Remake (NPWR49091)": {
     "R": [3, 1, 60, 0],
     "T": [1, 3, 8, 36],
@@ -27411,6 +27428,11 @@
     "G2": "https://www.playstationtrophies.org/game/final-fantasy-ix/guide/",
     "W": "https://psnprofiles.com/guide/7973",
     "W2": "https://psnprofiles.com/guide/8130"
+  },
+  "Final Fantasy Resonance (NPWR58353)": {
+    "R": [4, 1, 55, 0],
+    "T": [1, 4, 7, 28],
+    "G": "https://www.powerpyx.com/guide/final-fantasy-resonance-trophy-guide-roadmap/"
   },
   "Final Fantasy Tactics: The Ivalice Chronicles (NPWR49999)": {
     "R": [3, 1, 40, 2],
@@ -37418,6 +37440,11 @@
     "R": [3, 1, 43, 0],
     "T": [1, 2, 15, 28],
     "G": "https://www.playstationtrophies.org/game/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-infinite-combate/guide/"
+  },
+  "Is This Seat Taken? (NPWR60363)": {
+    "R": [2, 1, 5, 0],
+    "T": [1, 6, 11, 9],
+    "G": "https://psnprofiles.com/guide/26246"
   },
   "IS＜インフィニット・ストラトス＞2ラブ アンド パージ (NPWR08889)": {
     "R": [1, 8, 3.5, 0],
@@ -54453,6 +54480,11 @@
       "G": "https://psnprofiles.com/guide/20612"
     }
   },
+  "Phantom Blade Zero (NPWR62534)": {
+    "R": [4, 1, 35, 2],
+    "T": [1, 3, 14, 18],
+    "G": "https://www.powerpyx.com/guide/phantom-blade-zero-trophy-guide-roadmap/"
+  },
   "Phantom Brave: The Lost Hero (NPWR41856)": {
     "R": [3, 1, 50, 0],
     "T": [1, 2, 6, 41],
@@ -69394,6 +69426,16 @@
     "T": [1, 7, 7, 11],
     "G": "https://psnprofiles.com/guide/8562"
   },
+  "Steins;Gate Re:Boot (NPWR59932)": {
+    "R": [1, 1, 3, 0],
+    "T": [1, 3, 12, 25],
+    "G": "https://www.powerpyx.com/guide/steinsgate-reboot-trophy-guide-roadmap/"
+  },
+  "Steins;Gate Re:Boot (NPWR60019)": {
+    "R": [1, 1, 3, 0],
+    "T": [1, 3, 12, 25],
+    "G": "https://www.powerpyx.com/guide/steinsgate-reboot-trophy-guide-roadmap/"
+  },
   "Steins;Gate 비익연리의 달링 (NPWR05945)": {
     "R": [1, 1, 30, 0],
     "T": [1, 3, 6, 34],
@@ -78393,22 +78435,25 @@
     "G": "https://psnprofiles.com/guide/22167"
   },
   "The Wolf Among Us (NPWR05342)": {
-    "R": [1, 1, 10, 0],
+    "R": [1, 1, 10, 2],
     "T": [1, 5, 5, 25],
     "G": "https://psnprofiles.com/guide/639",
-    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/"
+    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/",
+    "G3": "https://www.powerpyx.com/guide/the-wolf-among-us-remastered-trophy-guide-roadmap/"
   },
   "The Wolf Among Us (NPWR05703)": {
-    "R": [1, 1, 10, 0],
+    "R": [1, 1, 10, 2],
     "T": [1, 5, 5, 25],
     "G": "https://psnprofiles.com/guide/639",
-    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/"
+    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/",
+    "G3": "https://www.powerpyx.com/guide/the-wolf-among-us-remastered-trophy-guide-roadmap/"
   },
   "The Wolf Among Us (NPWR07240)": {
-    "R": [1, 1, 10, 0],
+    "R": [1, 1, 10, 2],
     "T": [1, 5, 5, 25],
     "G": "https://psnprofiles.com/guide/639",
-    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/"
+    "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/",
+    "G3": "https://www.powerpyx.com/guide/the-wolf-among-us-remastered-trophy-guide-roadmap/"
   },
   "The Wonderful 101 (NPWR19775)": {
     "R": [8, 5, 75, 1],
@@ -79193,7 +79238,7 @@
     "G2": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops/guide/",
     "G3": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops-zombie-edition/guide/",
     "Tiny Troopers Joint Ops: Zombie Campaign DLC": {
-      "R": [1, 2, 1, 1],
+      "R": [1, 1, 1, 1],
       "T": [0, 1, 1, 0],
       "G": "https://psnprofiles.com/guide/6303"
     }
@@ -79205,7 +79250,7 @@
     "G2": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops/guide/",
     "G3": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops-zombie-edition/guide/",
     "Tiny Troopers Joint Ops: Zombie Campaign DLC": {
-      "R": [1, 2, 1, 1],
+      "R": [1, 1, 1, 1],
       "T": [0, 1, 1, 0],
       "G": "https://psnprofiles.com/guide/6303"
     }
@@ -79217,7 +79262,7 @@
     "G2": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops/guide/",
     "G3": "https://www.playstationtrophies.org/game/tiny-troopers-joint-ops-zombie-edition/guide/",
     "Tiny Troopers Joint Ops: Zombie Campaign DLC": {
-      "R": [1, 2, 1, 1],
+      "R": [1, 1, 1, 1],
       "T": [0, 1, 1, 0],
       "G": "https://psnprofiles.com/guide/6303"
     }

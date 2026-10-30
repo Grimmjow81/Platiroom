@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Platiroom v1.0.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <!-- MAIN NAVBAR -->
+  <header class="navbar">
+    <div class="profile-widget">
+      <img id="avatar" alt="🎮" style="display:none;" onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='inline-block';">
+      <span id="avatar-placeholder" class="emoji-avatar" style="display:none;">🎮</span>
+    <div class="account-info">
+      <h1 id="account-name">Trophies</h1>
+      <div id="account-level-widget" class="account-level-widget" style="display: none;">
+        <img id="tier-icon" class="tier-icon" src="" alt="Tier">
+        <span id="account-level" class="account-level"></span>
+      </div>
+    </div>
+    </div>
+
+    <div class="counters">
+      <div class="counter-badge platinum"><img id="header-plat" src="img/c_platinum.png"><span id="count-plat">0</span></div>
+      <div class="counter-badge gold"><img id="header-gold" src="img/c_gold.png"><span id="count-gold">0</span></div>
+      <div class="counter-badge silver"><img id="header-silver" src="img/c_silver.png"><span id="count-silver">0</span></div>
+      <div class="counter-badge bronze"><img id="header-bronze" src="img/c_bronze.png"><span id="count-bronze">0</span></div>
+    </div>
+
+    <div class="nav-controls">
+		<button id="btn-scraping-dialog" title="Personal data" class="nav-icon-btn"><img src="img/Account.svg" alt="Personal data"></button>
+		<button id="btn-options-dialog" title="Options" class="nav-icon-btn"><img src="img/Settings.svg" alt="Options"></button>
+		<button id="btn-help" title="Help" class="nav-icon-btn" onclick="window.api.openExternal('https://github.com/Grimmjow81/Platiroom#readme')"><img src="img/help.svg" alt="Help"></button>
+    </div>
+  </header>
+
+  <!-- TAB BAR -->
+  <nav class="tab-bar-container">
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-tab="welcome">Welcome</button>
+      <button class="tab-btn" data-tab="my-games">My Games</button>
+	  <button class="tab-btn" data-tab="platiroom">Platiroom</button>
+      <button class="tab-btn" data-tab="statistics">Statistics</button>
+      <!-- Custom tabs will be inserted here by JS -->
+      <button id="btn-add-tab" class="tab-btn add-tab-btn" title="Add Custom Tab">+</button>
+    </div>
+  </nav>
+</div>
+  <!-- TAB CONTENTS -->
+  <div id="tabs-container" class="tabs-wrapper">
+
+    <!-- 1. WELCOME TAB -->
+    <section id="tab-welcome" class="tab-content active">
+      <div class="welcome-container">
+        
+        <!-- Left Panel (Main Welcome) -->
+        <div class="welcome-card welcome-left">
+          <h2>Welcome to Platiroom</h2>
+          
+          <p>
+            <strong>Platiroom</strong> is an independent project created to help you track, view, and manage your PlayStation trophy collection locally.
+          </p>
+
+          <div class="welcome-disclaimer">
+            <span class="disclaimer-icon">⚠️</span>
+            <p>
+              <strong>Disclaimer:</strong> This application has no official affiliation, connection, or endorsement with Sony Interactive Entertainment or PlayStation.
+            </p>
+          </div>
+
+          <div class="welcome-credits">
+            <h3>Credits & Acknowledgments</h3>
+            <ul>
+              <li><strong>Author:</strong> Designed and developed by <strong>Grimmjow81</strong> with AI assistance.</li>
+               <li><strong>Massicci0</strong> for DB construction and general testing.
+			   <li><strong>Special Thanks:</strong> to <strong>Husky</strong> for granting permission to integrate the <a href="https://psnp-plus.huskycode.dev/" class="external-link">PSNP+</a> databases, which allow the app to flag guides, unobtainable trophies, upcoming server shutdowns.
+			  </li>
+            </ul>
+          </div>
+
+          <div class="welcome-privacy">
+            <h3>Open Source & Privacy</h3>
+            <p>
+              This project is open-source and free to use. You can view or contribute to the source code on <a href="#" class="external-link tbd-link"><a href="https://github.com/Grimmjow81/Platiroom" class="external-link">GitHub</a></a>.
+            </p>
+            <p>
+              🔒 <strong>Your Data is Safe:</strong> All your personal data and account details are saved 100% locally on your machine. No personal information is ever transmitted or shared with external servers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Panels (Stacked vertically) -->
+        <div class="welcome-right-column">
+          
+          <!-- Top Panel: Database Status -->
+          <div class="welcome-card" id="db-status-card">
+            <h2>Database Status</h2>
+            
+            <div class="db-card-body">
+              
+              <!-- Left Column: PSNP+ DB -->
+              <div class="db-column">
+                <div class="db-subtitle">PSNP+ DB</div>
+                <ul id="db-status-list" class="db-status-list">
+                  <!-- Dynamically populated by JS -->
+                </ul>
+              </div>
+
+              <!-- Vertical divider line -->
+              <div class="v-divider"></div>
+
+              <!-- Right Column: Platiroom DB -->
+              <div class="db-column">
+                <div class="db-subtitle">Platiroom DB</div>
+                <ul id="platiroom-db-status-list" class="db-status-list">
+                  <!-- Dynamically populated by JS -->
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Panel: Upcoming Shutdown -->
+          <div class="welcome-card">
+            <h2>Upcoming Shutdown</h2>
+            <ul id="shutdown-status-list" class="shutdown-list">
+              <!-- Dynamically populated by JS -->
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. MY GAMES TAB -->
+    <section id="tab-my-games" class="tab-content">
+      <div class="controls-bar">
+        <div class="filter-group" id="console-filters">
+          <button class="filter-btn active" data-console="all">All</button>
+          <button class="filter-btn" data-console="PS3">PS3</button>
+          <button class="filter-btn" data-console="PSVITA">PS Vita</button>
+          <button class="filter-btn" data-console="PS4">PS4</button>
+          <button class="filter-btn" data-console="PS5">PS5</button>
+          <button class="filter-btn" data-console="VR">VR</button>
+        </div>
+        <div class="v-separator"></div>
+        <button id="btn-filter-in-progress" class="filter-btn">In Progress</button>
+        <div class="v-separator"></div>
+        <button id="btn-sort-az" class="filter-btn">A-Z Sort</button>
+        <div class="v-separator"></div>
+        <div class="search-wrapper">
+          <input type="text" id="search-input" placeholder="Search game...">
+          <button id="btn-clear-search" class="search-clear-btn" title="Clear search">✖</button>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <span id="lbl-trophy-count">Loading database asynchronously...</span>
+        <button id="btn-prev-page" disabled>Previous</button>
+        <button id="btn-next-page" disabled>Next</button>
+      </div>
+
+      <main class="scroll-area">
+        <div id="games-container"></div>
+      </main>
+    </section>
+
+    <!-- 3. PLATIROOM TAB -->
+    <section id="tab-platiroom" class="tab-content">
+      <div class="platiroom-container">
+        <div id="platiroom-list" class="platiroom-panel platiroom-left"></div>
+        <div id="platiroom-center" class="platiroom-center"></div>
+        <div id="platiroom-tables" class="platiroom-panel platiroom-right"></div>
+      </div>
+    </section>
+
+    <!-- 4. STATISTICS TAB -->
+    <section id="tab-statistics" class="tab-content">
+      <div id="stat-container" class="stat-container"></div>
+    </section>
+
+  </div>
+
+  <!-- CONTEXT MENU FOR CUSTOM TABS -->
+<div id="tab-context-menu" class="context-menu" style="display: none;">
+  <div class="context-menu-item" id="ctx-move-left">⬅️ Move left</div>
+  <div class="context-menu-item" id="ctx-move-right">➡️ Move right</div>
+  <div class="context-menu-item" id="ctx-rename-tab">✏️ Rename</div>
+  <div class="context-menu-item danger" id="ctx-delete-tab">🗑️ Delete</div>
+</div>
+
+  <!-- TAB CREATION / RENAME MODAL -->
+  <dialog id="tab-modal-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2 id="tab-modal-title">Custom Tab</h2>
+      <div class="form-group">
+        <label for="txt-tab-name">Tab Name:</label>
+        <input type="text" id="txt-tab-name" maxlength="16" placeholder="Tab name (max 16)...">
+		<p id="tab-modal-error" class="dialog-error" hidden></p>
+      </div>
+      <div class="dialog-actions">
+        <button id="tab-modal-cancel" class="btn-secondary">Cancel</button>
+        <button id="tab-modal-ok" class="btn-primary">OK</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- TAB DELETE CONFIRMATION MODAL -->
+  <dialog id="tab-delete-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Delete Custom Tab</h2>
+      <p id="tab-delete-msg" class="dialog-message">Are you sure you want to delete this tab?</p>
+      <div class="dialog-actions">
+        <button id="tab-delete-cancel" class="btn-secondary">Cancel</button>
+        <button id="tab-delete-confirm" class="btn-primary btn-danger-action">Delete</button>
+      </div>
+    </div>
+  </dialog>
+
+<!-- GAME DELETE CONFIRMATION MODAL -->
+  <dialog id="game-delete-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Delete Game</h2>
+      <p id="game-delete-msg" class="dialog-message">Are you sure you want to delete this game?</p>
+      <div class="dialog-actions">
+        <button id="game-delete-cancel" class="btn-secondary">Cancel</button>
+        <button id="game-delete-confirm" class="btn-primary btn-danger-action">Delete</button>
+      </div>
+    </div>
+  </dialog>
+  
+  <!-- ADD NEW GAME MODAL -->
+  <dialog id="dlg-add-game" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Add New Game</h2>
+      <div class="form-group">
+        <label for="txt-psn-search">Search in PSN Database:</label>
+        <input type="text" id="txt-psn-search" placeholder="Type at least 3 characters..." autocomplete="off">
+      </div>
+      
+      <div id="psn-search-results" class="search-results-box"></div>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn-secondary" onclick="document.getElementById('dlg-add-game').close()">Cancel</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- GAME NOTE MODAL -->
+  <dialog id="note-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Note</h2>
+      <p id="note-dialog-game" class="dialog-message"></p>
+      <div class="form-group">
+        <textarea id="txt-note" maxlength="1000" placeholder="Write a note (leave empty to remove it)..."></textarea>
+      </div>
+      <div class="dialog-actions">
+        <button id="note-cancel" class="btn-secondary">Cancel</button>
+        <button id="note-ok" class="btn-primary">OK</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- OPTIONS AND SCRAPING MODALS -->
+  <dialog id="options-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Options</h2>
+      <div class="form-group">
+        <label>Trophies style</label>
+        <div class="dialog-style-buttons">
+          <button type="button" class="style-select-btn" data-style="Classic">
+            <img src="img/c_platinum.png" alt="Classic">Classic
+          </button>
+          <button type="button" class="style-select-btn" data-style="Modern">
+            <img src="img/m_platinum.png" alt="Modern">Modern
+          </button>
+          <button type="button" class="style-select-btn" data-style="Platform">
+            <div class="style-btn-icons">
+              <img src="img/c_platinum.png" alt="Classic Plat">
+              <img src="img/m_platinum.png" alt="Modern Plat">
+            </div>
+            <span>Platform</span>
+          </button>
+        </div>
+      </div>
+	  <div class="form-group">
+  <label>Platinum rarity</label>
+  <div class="dialog-style-buttons">
+    <button type="button" class="rarity-select-btn style-select-btn" data-rarity="PSN platform">PSN platform</button>
+    <button type="button" class="rarity-select-btn style-select-btn" data-rarity="Trophy Hunters">Trophy Hunters</button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="checkbox-label" for="chk-hide-unreleased">
+    <span>Hide unreleased games</span>
+    <input type="checkbox" id="chk-hide-unreleased">
+  </label>
+</div>
+    <div class="dialog-actions">
+      <button id="options-cancel" class="btn-secondary">Cancel</button>
+      <button id="options-ok" class="btn-primary">OK</button>
+    </div>
+  </div>
+</dialog>
+
+  <dialog id="scraping-dialog" class="custom-dialog">
+    <div class="dialog-content">
+      <h2>Personal data</h2>
+      <p class="npsso-help">
+        Click <a href="https://ca.account.sony.com/api/v1/ssocookie" target="_blank">here</a> to get your NPSSO token from PSN and paste below:
+      </p>
+      <input type="text" id="txt-npsso" maxlength="64" placeholder="Paste your 64-character NPSSO token here...">
+      
+      <div class="scraping-grid">
+        <div class="grid-row">
+          <label>Account Scraper:</label>
+          <button id="btn-get-data" class="btn-secondary" disabled>Get your data</button>
+        </div>
+      </div>
+      
+      <div class="dialog-actions">
+        <button id="scraping-cancel" class="btn-secondary">Cancel</button>
+        <button id="scraping-ok" class="btn-primary">OK</button>
+      </div>
+    </div>
+  </dialog>
+
+<script src="node_modules/chart.js/dist/chart.umd.js"></script>
+<script src="renderer-global.js"></script>
+<script src="renderer-welcome.js"></script>
+<script src="renderer-list.js"></script>
+<script src="renderer-stat.js"></script>
+</body>
+</html>

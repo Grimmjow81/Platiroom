@@ -27,7 +27,7 @@ Official repository: <https://github.com/Grimmjow81/Platiroom>
 
 1. Download and open the program folder.
 2. Run `Platiroom.exe`.
-3. Click the 🔄 icon in the top right corner (**PSN Scraping**).
+3. Click the 👤 icon in the top right corner (**Personal data**).
 4. Get your NPSSO token (see below) and paste it into the field.
 5. Press **Get your data** and wait. The first import can take several minutes, depending on how many games you have.
 6. When it finishes, the list is loaded automatically.
@@ -39,7 +39,7 @@ Later updates are much faster: only games that changed are downloaded again.
 1. Sign in to your PlayStation account in your browser.
 2. In the same browser, open <https://ca.account.sony.com/api/v1/ssocookie>.
 3. Copy the **64-character** code shown as `npsso`.
-4. Paste it into the PSN Scraping window of Platiroom.
+4. Paste it into the Personal data window of Platiroom.
 
 > ⚠️ The token grants access to your account: **do not share or publish it**. It is saved only in `json/Options.json`, locally.
 
@@ -122,7 +122,7 @@ The build creates the `portable/` folder with the executable and the base `json/
 
 ## Privacy
 
-Your data and token stay on your computer. Network requests go only to PlayStation/Sony services (for trophies and images) and to your browser when you open an external link.
+Your data and token stay on your computer. Network requests go only to PlayStation/Sony services (for trophies and images), to GitHub for database updating and to your browser when you open an external link.
 
 ---
 

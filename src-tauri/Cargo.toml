@@ -1,0 +1,20 @@
+[package]
+name = "Platiroom"
+version = "1.0.0"
+description = "Platiroom - PSN trophy manager"
+edition = "2021"
+
+[lib]
+name = "platiroom_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-fs = "2"
+tauri-plugin-opener = "2"
+# "cookies" is intentionally left out of the default features: the NPSSO request must not use a cookie jar.
+# "unsafe-headers" lets the webview send the Cookie header and remove the Origin header.
+tauri-plugin-http = { version = "2", default-features = false, features = ["rustls-tls", "http2", "charset", "system-proxy", "unsafe-headers"] }

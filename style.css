@@ -1,0 +1,1686 @@
+/* ==========================================================================
+   INDEX
+   1.  Variables and base
+   2.  Buttons
+   3.  Header (navbar)
+   4.  Tab bar
+   5.  Controls bar (filters, search, pagination)
+   6.  Welcome tab (card, database status, shutdown)
+   7.  Game list (game row, progress, trophy counts)
+   8.  Groups / DLC
+   9.  Trophy table
+   10. Badges, tags and tooltips
+   11. Context menus and dropdowns
+   12. Modal windows
+   13. Platiroom
+   14. Statistics
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES AND BASE
+   ========================================================================== */
+
+:root {
+  --bg-window: #F4F6F9;
+  --outline-color: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --bg-alt: #E9ECEF;
+  --border: #DEE2E6;
+  --text-main: #212529;
+  --text-muted: #6C757D;
+  --brand: #0070CC;
+  --bar-chunk: #2E6DB4;
+  --bar-text: #D5A848;
+  --error: #F75F66;
+  --platinum: #3498DB;
+  --gold: #D4AF37;
+  --silver: #A0A0A0;
+  --bronze: #CD7F32;
+  --azzurro-confetto: #D0E8FF;
+  --highlight-green: #DCF5DE;
+  --earned-bg: #D0E8FF;
+  --black: #000000;
+  --tab-bg: #FBD1A2;
+  --tab-active-bg: #F79256;
+  --plat-ps3: #2570BB;
+  --plat-ps4: #104E9B;
+  --plat-psvita: #4A89DC;
+
+  --page-pad: 15px;
+  --note-cell-width: 36px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-window);
+  color: var(--text-main);
+  margin: 0;
+  padding: var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Colors by trophy type */
+.platinum { color: var(--platinum); }
+.gold { color: var(--gold); }
+.silver { color: var(--silver); }
+.bronze { color: var(--bronze); }
+
+
+/* ==========================================================================
+   2. BUTTONS
+   ========================================================================== */
+
+/* Common base for all <button> elements (filters, actions, pages, tabs...) */
+button {
+  background-color: var(--azzurro-confetto);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-btn,
+.page-btn,
+#btn-prev-page,
+#btn-next-page {
+  padding: 5px 12px;
+  font-weight: bold;
+}
+
+.btn-secondary,
+.btn-primary {
+  padding: 6px 14px;
+  font-weight: bold;
+}
+
+.nav-icon-btn {
+  background: transparent;
+  border-color: transparent;
+  font-size: 22px;
+  padding: 6px;
+}
+
+.nav-icon-btn img { width: 39px; height: 39px; display: block; }
+
+
+/* Generic hover (all non-disabled and non-selected buttons) */
+button:hover:not(:disabled):not(.active):not(.checked) {
+  background-color: var(--highlight-green);
+  border-color: #B2DFB5;
+  color: var(--text-main);
+}
+
+/* Selected state */
+.filter-btn.active,
+.filter-btn.checked,
+.style-select-btn.checked {
+  background-color: var(--bar-chunk);
+  color: #FFFFFF;
+  border-color: var(--bar-chunk);
+  font-weight: bold;
+}
+
+.btn-primary:active:not(:disabled) {
+  background-color: var(--bar-chunk);
+  color: #FFFFFF;
+  border-color: var(--bar-chunk);
+}
+
+.btn-danger-action {
+  background-color: #FEE2E2;
+  border-color: #FCA5A5;
+  color: #DC2626;
+}
+
+.btn-danger-action:hover:not(:disabled) {
+  background-color: #FCA5A5 !important;
+  border-color: #F87171 !important;
+  color: #7F1D1D !important;
+}
+
+button:disabled,
+button.disabled {
+  background-color: var(--bg-alt) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border) !important;
+  cursor: default !important;
+  opacity: 0.7;
+}
+
+/* Small square red buttons (clear search, delete game) */
+.search-clear-btn,
+.btn-delete-game {
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--error);
+  border: none;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.search-clear-btn:hover,
+.btn-delete-game:hover {
+  background-color: #FEE2E2 !important;
+  border: none;
+}
+
+.btn-delete-game {
+  transition: all 0.15s ease-in-out;
+}
+
+
+/* ==========================================================================
+   3. HEADER (NAVBAR)
+   ========================================================================== */
+
+.topbar {
+  /* background: url('img/topbar.jpg') center / cover no-repeat;*/
+  border-bottom: 2px solid var(--border);
+  margin: calc(-1 * var(--page-pad)) calc(-1 * var(--page-pad)) 12px;
+  padding: calc(var(--page-pad) + 8px) calc(var(--page-pad) + 12px) 8px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  min-height: 52px
+}
+
+.profile-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tier-icon {
+  filter:
+    drop-shadow(0 0 2px var(--outline-color))
+    drop-shadow(0 0 3px var(--outline-color))
+    drop-shadow(0 0 4px var(--outline-color));
+}
+
+.emoji-avatar {
+  font-size: 32px;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+#account-name {
+  color: var(--brand);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.account-level-widget {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tier-icon {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.account-level {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.counters {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+  margin-right: 120px;
+}
+
+.counter-badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.counter-badge img {
+  height: 35px;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Outline */
+#account-name,
+.account-level,
+.counter-badge span {
+  -webkit-text-stroke: 2px var(--outline-color);
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 2px var(--outline-color),
+    0 0 4px var(--outline-color),
+    0 0 6px var(--outline-color);
+}
+
+.counter-badge img,
+.tier-icon {
+  filter:
+    drop-shadow(0 0 2px var(--outline-color))
+    drop-shadow(0 0 3px var(--outline-color))
+    drop-shadow(0 0 4px var(--outline-color));
+}
+
+#avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid var(--outline-color);
+  box-shadow: 0 0 6px 2px var(--outline-color);
+}
+
+/* ==========================================================================
+   4. TAB BAR
+   ========================================================================== */
+
+.tab-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: var(--tab-bg);
+  padding: 6px 22px;
+  font-size: 13px;
+  font-weight: bold;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: var(--highlight-green) !important;
+  border-color: #B2DFB5;
+}
+
+.tab-btn.active {
+  background-color: var(--tab-active-bg) !important;
+  color: #FFFFFF;
+  border-color: #E07D42;
+}
+
+.add-tab-btn {
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
+.tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.tab-content {
+  display: none;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+
+/* ==========================================================================
+   5. CONTROLS BAR (FILTERS, SEARCH, PAGINATION)
+   ========================================================================== */
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-btn {
+  height: 28px;
+  box-sizing: border-box;
+}
+
+.v-separator {
+  width: 1px;
+  height: 20px;
+  background-color: var(--border);
+}
+
+.spacer { flex-grow: 1; }
+
+/* Search */
+.search-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  height: 28px;
+  padding: 0 28px 0 10px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.search-wrapper input:focus {
+  border-color: var(--brand);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.15s ease-in-out;
+}
+
+/* Counter and pagination */
+#lbl-trophy-count,
+.trophy-count-label {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+#btn-prev-page,
+#btn-next-page,
+.prev-btn,
+.next-btn {
+  margin-left: 6px;
+}
+
+
+/* ==========================================================================
+   6. WELCOME TAB
+   ========================================================================== */
+
+.welcome-container {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  overflow: hidden;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.welcome-left {
+  flex: 1.2;
+  overflow-y: auto;
+}
+
+.welcome-right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  min-height: 0;
+}
+
+.welcome-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.welcome-right-column .welcome-card:last-child {
+  flex: 1;
+  min-height: 0;
+}
+
+.welcome-card h2 {
+  margin: 0;
+  color: var(--brand);
+  font-size: 20px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.welcome-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.welcome-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+.welcome-disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FFF3CD;
+  border: 1px solid #FFEBAA;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.welcome-disclaimer .disclaimer-icon {
+  font-size: 18px;
+}
+
+.welcome-disclaimer p {
+  color: #856404;
+  font-size: 12px;
+}
+
+.welcome-credits,
+.welcome-privacy {
+  background-color: var(--bg-window);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+
+.welcome-credits ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.welcome-credits li {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.welcome-privacy p + p {
+  margin-top: 8px;
+}
+
+.external-link {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.external-link:hover {
+  text-decoration: underline;
+}
+
+.tbd-link {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Database status (prepared lists, to be populated via JS) */
+.db-card-body {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  position: relative;
+}
+
+.v-divider {
+  width: 1px;
+  background-color: var(--border);
+  align-self: stretch;
+}
+
+.db-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.db-subtitle {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+  padding-bottom: 2px;
+}
+
+.db-status-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.db-status-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  border-bottom: none;
+  font-size: 12px;
+}
+
+.db-status-name {
+  font-weight: 500;
+  color: var(--text-main);
+  min-width: 90px;
+}
+
+.db-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.db-badge.updated { background-color: #28a745; }
+.db-badge.up-to-date { background-color: #17a2b8; }
+.db-badge.error { background-color: #dc3545; }
+.db-badge.checking,
+.db-badge.disabled { background-color: var(--text-muted); }
+.db-image { height: 32px; width: auto; flex: 0 0 auto; }
+
+/* Upcoming shutdown */
+.shutdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.shutdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.shutdown-item:last-child {
+  border-bottom: none;
+}
+
+.shutdown-date {
+  font-weight: bold;
+  color: var(--error);
+  min-width: 85px;
+}
+
+.shutdown-title {
+  font-weight: 600;
+  color: var(--text-main);
+  flex-grow: 1;
+}
+
+.shutdown-platforms {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+
+/* ==========================================================================
+   7. GAME LIST
+   ========================================================================== */
+
+.scroll-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
+  overflow-y: scroll;
+}
+
+#games-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container {
+  border-bottom: 1px solid var(--border);
+}
+
+.game-container:last-child {
+  border-bottom: none;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 0 10px;
+  gap: 10px;
+  cursor: pointer;
+  background-color: var(--card-bg);
+  transition: background-color 0.15s;
+  overflow: visible !important;
+}
+
+.game-header.complete {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-window),
+    var(--earned-bg),
+    var(--bg-window)
+  );
+}
+
+.game-container .game-header:hover {
+  background: var(--highlight-green);
+}
+
+/* Game row columns, from left to right */
+.game-delete-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.header-icon {
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-icon-cell {
+  width: 110px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-icon-cell img {
+  max-width: 110px;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+.game-title-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  overflow: visible !important;
+}
+
+.game-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.game-region-tag {
+  color: var(--silver);
+  font-size: 0.85em;
+  font-weight: bold;
+  margin-left: 6px;
+  display: inline-block;
+}
+
+.game-badges-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  overflow: visible !important;
+}
+
+@font-face {
+  font-family: 'PSBold';
+  src: url('img/PSBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.badge-plat {
+  box-sizing: border-box;
+  width: 45px;
+  height: 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #6C757D;          /* Unknown platform */
+  color: #FFFFFF;
+  font: bold 10px/11px 'PSBold', Arial, sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-plat-ps3    { background-color: var(--plat-ps3); }
+.badge-plat-ps4    { background-color: var(--plat-ps4); }
+.badge-plat-psvita { background-color: var(--plat-psvita); }
+
+.badge-plat-ps5 {
+  background-color: #FFFFFF;
+  border-color: #000000;
+  color: #000000;
+}
+
+/* Trophy counts by type (shared between game row and DLC row) */
+.game-trophy-counts {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 10px;
+  padding: 0 8px;
+  min-width: 120px;
+}
+
+.trophy-type-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.trophy-type-img {
+  height: 30px;
+  object-fit: contain;
+}
+
+.trophy-type-count {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Progress bar (shared between game row and DLC row) */
+.progress-container {
+  width: 130px;
+  background-color: transparent;
+  border: none;
+  height: auto;
+  position: relative;
+  text-align: center;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  height: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: var(--bar-chunk);
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--bar-text);
+}
+
+.game-count-gold {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--gold);
+  text-shadow: 0px 0px 2px rgba(212, 175, 55, 0.3);
+  white-space: nowrap;
+}
+
+/* Expansion arrow (game and DLC) */
+.group-expand-cell,
+.expand-icon-cell {
+  width: 24px;
+  min-width: 20px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-expand-arrow,
+.expand-arrow {
+  font-size: 20px;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+/* Notes column (last cell of the game row) */
+.note-cell {
+  flex: 0 0 var(--note-cell-width);
+  align-self: stretch;          /* Entire row height is right-click area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: context-menu;
+  user-select: none;
+  opacity: 0.2;
+  filter: grayscale(1);
+  transition: opacity 0.15s;
+}
+
+.note-cell:hover { opacity: 0.6; }
+
+.note-cell.has-note {
+  opacity: 1;
+  filter: none;
+}
+
+/* ==========================================================================
+   8. GROUPS / DLC
+   ========================================================================== */
+
+.game-details {
+  --dlc-row-inset: 103px;        /* border 1 + padding-left 12 + icon 80 + gap 10 */
+  --game-title-offset: 183px;    /* padding 10 + platinum 45 + gap 10 + icon 110 + gap 10 */
+  display: none;
+  background-color: var(--bg-window);
+  padding: 10px calc(var(--note-cell-width) + 10px) 10px calc(var(--game-title-offset) - var(--dlc-row-inset));
+  border-top: 1px dashed var(--border);
+  overflow: visible !important;
+}
+
+/* Custom tabs: delete cell (32px) + gap (10px) */
+.game-details.with-delete {
+  --game-title-offset: 225px;
+}
+
+.groups-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: visible !important;
+}
+
+.group-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 9px 6px 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  overflow: visible !important;
+}
+
+.group-row.complete {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-window),
+    var(--earned-bg),
+    var(--bg-window)
+  );
+}
+
+.group-row:hover {
+  background: var(--highlight-green);
+}
+
+.group-icon {
+  width: 80px;
+  height: 45px;
+  flex: 0 0 80px;
+  object-fit: contain;
+}
+
+.group-title-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-grow: 1;
+  overflow: visible !important;
+}
+
+.group-name {
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.group-row .game-trophy-counts {
+  flex: 0 0 140px;
+  justify-content: flex-end;
+}
+
+/* Guide links */
+.group-guide-links {
+  flex: 0 0 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-left: auto;
+  margin-right: 24px;
+  overflow: visible !important;
+}
+
+.guide-btn {
+  background: transparent;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  outline: 2px solid transparent;
+  transition: outline-color 0.15s ease-in-out;
+}
+
+.guide-btn:hover {
+  outline: 2px solid #2ec4b6;
+  outline-offset: 1px;
+}
+
+.guide-badge-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.guide-w-overlay {
+  position: absolute;
+  top: -1px;
+  left: -3px;
+  background-color: #FFE600;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 2px 3px 0 3px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  pointer-events: none;
+}
+
+.group-trophies-container {
+  display: none;
+  padding: 8px 0;
+  border-top: 1px dashed var(--border);
+  background-color: var(--bg-window);
+}
+
+
+/* ==========================================================================
+   9. TROPHY TABLE
+   ========================================================================== */
+
+.trophies-table,
+.platiroom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.trophies-table th,
+.platiroom-table th {
+  background-color: var(--bg-alt);
+  color: var(--text-main);
+  font-weight: bold;
+  border: 1px solid var(--border);
+  padding: 6px;
+  text-align: left;
+}
+
+.trophies-table td,
+.platiroom-table td {
+  border: 1px solid var(--border);
+  padding: 4px;
+  vertical-align: middle;
+  background-color: var(--card-bg);
+}
+
+/* Must remain after ".trophies-table td" to override its background */
+.trophy-row-earned td {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-window),
+    var(--earned-bg),
+    var(--bg-window)
+  );
+}
+
+.trophies-table .center-cell,
+.platiroom-table .center-cell { text-align: center; }
+
+.trophy-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+
+/* ==========================================================================
+   10. BADGES, TAGS AND TOOLTIPS
+   ========================================================================== */
+
+.guide-separator {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1;
+  margin: 0 2px;
+}
+
+/* Guide statistics (difficulty, playthroughs, hours, DLC hours) */
+.guide-stats-badge {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 6px 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Color scale (dynamically assigned: guide-bg-${n}) */
+.guide-bg-1  { background-color: #618839; }
+.guide-bg-2  { background-color: #898825; }
+.guide-bg-3  { background-color: #b38811; }
+.guide-bg-4  { background-color: #d38603; }
+.guide-bg-5  { background-color: #dd7e04; }
+.guide-bg-6  { background-color: #dc7111; }
+.guide-bg-7  { background-color: #d16226; }
+.guide-bg-8  { background-color: #c2543a; }
+.guide-bg-9,
+.guide-bg-10 { background-color: #ba4b47; }
+
+/* Trophy tags and warnings. Variants must remain after ".tag-badge" */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 18px;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: middle;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+.tag-buggy {
+  background-color: #FEE2E2;
+  border-color: #FCA5A5;
+  color: #DC2626;
+}
+
+.tag-missable {
+  background-color: #FEF3C7;
+  border-color: #FDE68A;
+  color: #D97706;
+}
+
+.tag-online {
+  background-color: #E0E7FF;
+  border-color: #C7D2FE;
+  color: #4F46E5;
+}
+
+.badge-unobtainable {
+  background-color: #FEE2E2;
+  border-color: #FCA5A5;
+  color: #DC2626;
+}
+
+.badge-shutdown {
+  background-color: #FEF3C7;
+  border-color: #FDE68A;
+  color: #D97706;
+}
+
+/* Elements hosting a tooltip */
+.guide-btn,
+.tag-badge,
+.guide-stats-badge,
+.shutdown-item,
+.badge-unobtainable,
+.badge-shutdown {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.tag-badge,
+.guide-stats-badge,
+.shutdown-item,
+.badge-unobtainable,
+.badge-shutdown {
+  cursor: help;
+}
+
+.custom-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  background-color: #212529;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: normal !important;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+  pointer-events: none;
+  white-space: pre-wrap;
+  max-width: 500px;
+  width: max-content;
+  text-align: center;
+}
+
+.custom-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #212529 transparent transparent transparent;
+}
+
+/* Notes tooltip: fixed position, so it's not clipped by the scroll area */
+.note-tooltip {
+  position: fixed;
+  display: none;
+  background-color: #212529;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+  pointer-events: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  width: max-content;
+  max-width: 360px;
+  max-height: 60vh;
+  overflow: hidden;
+  text-align: left;
+}
+
+.guide-btn:hover .custom-tooltip,
+.tag-badge:hover .custom-tooltip,
+.guide-stats-badge:hover .custom-tooltip,
+.badge-unobtainable:hover .custom-tooltip,
+.badge-shutdown:hover .custom-tooltip,
+.shutdown-item:hover .custom-tooltip {
+  display: block !important;
+}
+
+
+/* ==========================================================================
+   11. CONTEXT MENUS, USER RATING AND DROPDOWNS
+   ========================================================================== */
+
+/* Tabs context menu */
+.context-menu {
+  position: fixed;
+  background-color: var(--bg-window);
+  border: 1px solid var(--black);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  padding: 4px 0;
+  z-index: 999999;
+  min-width: 130px;
+}
+
+.context-menu-item {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  transition: background-color 0.1s;
+}
+
+.context-menu-item:hover {
+  background-color: var(--bg-window);
+}
+
+.context-menu-item.danger {
+  color: var(--error);
+}
+
+.context-menu-item.danger:hover {
+  background-color: #FEE2E2;
+}
+
+.context-menu-item.disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+
+/* ==========================================================================
+   12. MODAL WINDOWS
+   ========================================================================== */
+
+dialog,
+.custom-dialog {
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--bg-window);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  width: 440px;
+  box-sizing: border-box;
+  overflow: visible !important;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-dialog h2 {
+  margin-top: 0;
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+.custom-dialog label,
+.custom-dialog .npsso-help {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  overflow: visible;
+}
+
+.dialog-message {
+  font-size: 13px;
+  color: var(--text-main);
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.custom-dialog input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.custom-dialog textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.custom-dialog textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+#note-dialog-game {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.custom-dialog input[type="text"]:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dialog-error {
+  margin: 0;
+  font-size: 12px;
+  color: var(--error);
+}
+
+/* Options: button selectors (Trophies style, Platinum rarity) */
+.dialog-style-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.style-select-btn {
+  flex: 1;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.style-select-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.style-btn-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.style-btn-icons img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* Options: checkbox with label */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Scraping */
+#txt-npsso {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.scraping-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid-row button { width: 200px; }
+
+/* Add new game: PSN search results */
+.search-results-box {
+  height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  margin-bottom: 15px;
+}
+
+.psn-results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.psn-result-item {
+  padding: 8px 12px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--text-main);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.psn-result-item:last-child {
+  border-bottom: none;
+}
+
+.psn-result-item:hover {
+  background-color: var(--highlight-green);
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+
+/* ==========================================================================
+   13. PLATIROOM
+   ========================================================================== */
+
+.platiroom-container {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  min-height: 0;
+}
+
+/* Two independent scrollable panels, 65% / 35% */
+.platiroom-panel {
+  min-height: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
+  overflow-y: scroll;
+}
+
+/* Left 45%, platinum image 20%, right 35% (the right panel keeps its width) */
+.platiroom-left { flex: 40 1 0%; }
+
+.platiroom-center {
+  flex: 20 1 0%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platiroom-trophy-img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.platiroom-right {
+  flex: 40 1 0%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.platiroom-right > * { flex-shrink: 0; }
+
+/* The header of the long list stays visible while scrolling */
+.platiroom-left .platiroom-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.platiroom-title {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.platiroom-empty {
+  padding: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   14. STATISTICS
+   ========================================================================== */
+
+.stat-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  align-content: start;
+}
+
+.stat-card {
+  grid-column: span 3;          /* 2 per row */
+  min-width: 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.stat-card.third { grid-column: span 2; }    /* 3 per row */
+.stat-card.wide { grid-column: 1 / -1; }
+
+.stat-title {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Chart.js needs a positioned container with an explicit height */
+.chart-box {
+  position: relative;
+  height: 320px;
+}

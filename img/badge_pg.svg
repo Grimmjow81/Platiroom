@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Sfondo bianco circolare che arriva ai limiti dell'immagine -->
+  <circle cx="50" cy="50" r="50" fill="#ffffff" />
+
+  <!-- Gruppo del trofeo con contorno (outline) rosso -->
+  <g fill="none" stroke="#ff0055" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- Coppa principale -->
+    <path d="M 32 28 
+             L 68 28 
+             C 68 48, 60 56, 50 56 
+             C 40 56, 32 48, 32 28 Z" />
+
+    <!-- Manico Sinistro (curvo a mezzaluna) -->
+    <path d="M 34 32 
+             C 20 32, 20 46, 36 44" />
+
+    <!-- Manico Destro (curvo a mezzaluna) -->
+    <path d="M 66 32 
+             C 80 32, 80 46, 64 44" />
+
+    <!-- Stelo / Gambo rettangolare -->
+    <rect x="45" y="56" width="10" height="12" />
+
+    <!-- Base trapezoidale -->
+    <path d="M 38 78 L 62 78 L 57 68 L 43 68 Z" />
+
+  </g>
+</svg>

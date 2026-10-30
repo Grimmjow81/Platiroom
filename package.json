@@ -1,0 +1,16 @@
+{
+  "name": "Platiroom",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "web": "node scripts/build-web.mjs",
+    "dev": "node scripts/build-web.mjs && tauri dev",
+    "build": "node scripts/build-web.mjs --release && tauri build --no-bundle && node scripts/make-portable.mjs"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

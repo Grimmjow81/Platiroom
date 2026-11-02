@@ -10,7 +10,7 @@
 const DB_STATUS_LABELS = {
   checking: 'CHECKING...',
   'up-to-date': 'UP-TO-DATE',
-  updated: 'UPDATE',
+  updated: 'UPDATED',
   error: 'ERROR',
   disabled: 'DISABLED'
 };
@@ -86,7 +86,60 @@ async function initDatabaseSync() {
 // UPCOMING SHUTDOWNS
 // ==========================================================================
 
-function renderShutdownList() {
+// "NPWR12345_00" and "NPWR12345" are the same game
+const toBaseNpwr = (id) => String(id).toUpperCase().replace(/_\d+$/, '');
+
+// Games of the user, read from the files so the result does not depend on what is already loaded in memory:
+// { mine: Set of NPWR ids in My Games, lists: Map of NPWR id -> names of the custom lists that contain it }
+async function findUserGames() {
+  const mine = new Set();
+  const lists = new Map();
+
+  const userGames = await window.api.readLocalJson(DATA_FILES.games);
+  for (const key of Object.keys(userGames || {})) {
+    if (key.startsWith('__')) continue;   // metadata, not a game
+    extractNpwrIds(key).forEach(id => mine.add(toBaseNpwr(id)));
+  }
+
+  // Only the lists that have a tab count: data left over from a deleted tab is not visible to the user
+  const settings = await getSettings();
+  const listNames = Object.entries(settings)
+    .filter(([key, name]) => /^Tab\d+$/.test(key) && name)
+    .map(([, name]) => name);
+
+  const userTabs = await window.api.readLocalJson(DATA_FILES.tabs);
+  for (const listName of listNames) {
+    for (const key of Object.keys(userTabs?.[listName] || {})) {
+      if (key.startsWith('__')) continue;
+      for (const id of extractNpwrIds(key).map(toBaseNpwr)) {
+        const names = lists.get(id) || [];
+        if (!names.includes(listName)) names.push(listName);
+        lists.set(id, names);
+      }
+    }
+  }
+
+  return { mine, lists };
+}
+
+// Only the last call may draw: the games are read asynchronously, so an older call can finish after a newer one
+let shutdownRenderId = 0;
+
+// Red name: the game is in My Games. Yellow name: it is in a custom list (if both, red).
+// Called at startup, after the databases are updated, when the Welcome tab is shown and after the account scraper.
+async function renderShutdownList() {
+  const renderId = ++shutdownRenderId;
+
+  let userGames = { mine: new Set(), lists: new Map() };
+  if (shutdownData) {
+    try {
+      userGames = await findUserGames();
+    } catch (err) {
+      console.error('Could not read the games of the user for the shutdown list:', err);
+    }
+  }
+  if (renderId !== shutdownRenderId) return;
+
   const listEl = document.getElementById('shutdown-status-list');
   listEl.innerHTML = '';
 
@@ -116,9 +169,26 @@ function renderShutdownList() {
       .join(', ')
       .toUpperCase();
 
+    const ids = extractNpwrIds(key).map(toBaseNpwr);
+    const inMyGames = ids.some(id => userGames.mine.has(id));
+    const listNames = [...new Set(ids.flatMap(id => userGames.lists.get(id) || []))];
+
+    // The name is a box (red: in My Games, yellow: in a custom list) only if the user has the game;
+    // its tooltip says where, in the same style as the other tooltips
+    const nameEl = createEl('span', 'shutdown-name', parseGameKey(key).title);
+    if (inMyGames) {
+      nameEl.classList.add('in-mygames');
+      nameEl.appendChild(createTooltip('In My Games'));
+    } else if (listNames.length > 0) {
+      nameEl.classList.add('in-custom-list');
+      nameEl.appendChild(createTooltip(`In custom list: ${listNames.join(', ')}`));
+    }
+    const titleEl = createEl('span', 'shutdown-title');
+    titleEl.appendChild(nameEl);
+
     const li = createEl('li', 'shutdown-item');
     li.appendChild(createEl('span', 'shutdown-date', formatDate(entry.shutdownTimestamp)));
-    li.appendChild(createEl('span', 'shutdown-title', parseGameKey(key).title));
+    li.appendChild(titleEl);
     li.appendChild(createEl('span', 'shutdown-platforms', `[${platforms}]`));
 
     if (entry.note) li.appendChild(createTooltip(entry.note));

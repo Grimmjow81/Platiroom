@@ -6,6 +6,8 @@ Platiroom is a local manager for your PlayStation trophy collection. It fetches 
 
 Official repository: <https://github.com/Grimmjow81/Platiroom>
 
+<img src="docs/screenshots/my-games.png" width="600">
+
 ---
 
 ## Main features
@@ -18,18 +20,20 @@ Official repository: <https://github.com/Grimmjow81/Platiroom>
 - **Statistics**: charts for trophy progression, level, activity over time, games and platinums per platform, and rarity distribution.
 - **OUTATIME**: a list of missed trophies that can no longer be obtained.
 - **PSNP+ database information**: guides and walkthroughs, difficulty and estimated hours, missable/buggy/online trophies, unobtainable trophies and upcoming server shutdowns.
-- **Personal notes** you can add personal note for each game.
-- **User Interface**: you can change the appearance of the Ui in 3 different styles: Classic, Modern or Platform (modern icons for PS5, classic for the others).
+- **Server shutdown alerts**: in the Welcome tab, games with an upcoming server shutdown are highlighted if you own them (red) or if they are in one of your custom lists (yellow).
+- **Automatic database update**: at startup the program checks GitHub and downloads the databases if they are missing or outdated.
+- **Personal notes**: you can add a personal note for each game.
+- **User Interface**: you can change the appearance of the UI in 3 different styles: Classic, Modern or Platform (modern icons for PS5, classic for the others).
 
 ---
 
 ## Quick start
 
 1. Download and open the program folder.
-2. Run `Platiroom.exe`.
+2. Run `Platiroom.exe`. On first start the databases are downloaded automatically (check the status in the Welcome tab).
 3. Click the 👤 icon in the top right corner (**Personal data**).
 4. Get your NPSSO token (see below) and paste it into the field.
-5. Press **Get your data** and wait. The first import can take several minutes, depending on how many games you have.
+5. Press **Get your data** and wait. The first import can take several minutes, depending on how many games you have. A progress bar and a log (**Details**) show what is happening.
 6. When it finishes, the list is loaded automatically.
 
 Later updates are much faster: only games that changed are downloaded again.
@@ -48,7 +52,11 @@ Later updates are much faster: only games that changed are downloaded again.
 ## Tabs guide
 
 ### Welcome
-Introduction, credits, update database and the list of upcoming server shutdowns.
+Introduction, credits, database update status and the list of upcoming server shutdowns.
+
+<img src="docs/screenshots/welcome.png" width="600">
+
+**Upcoming Shutdown**: games are sorted by shutdown date. A game name is shown in **red** if the game is in My Games and in **yellow** if it is in one of your custom lists (red wins if it is in both). Hover over the name to see where it is.
 
 ### My Games
 - **Console filters**: All, PS3, PS Vita, PS4, PS5, VR.
@@ -59,6 +67,8 @@ Introduction, credits, update database and the list of upcoming server shutdowns
 - **PSNP+ Badges**: difficulty, number of playthroughs needed, estimated hours, missable ⚠️, buggy 🐞, online 🌐 and unobtainable ❌ trophies, and server shutdown ⏳.
 - **Guide buttons**: open the linked guides and walkthroughs in your browser.
 - **Notes**: right-click the 📝 icon to write or edit a note; leave the text empty to remove it. Hover over the icon to read it.
+
+<img src="docs/screenshots/my-games-exp.png" width="600">
 
 ### Custom tabs
 - Use the **+** button in the tab bar to create a new tab (maximum 6, name up to 16 characters).
@@ -73,6 +83,8 @@ A list of all your platinums (most recent first), with side tables.
 ### Statistics
 Interactive charts for trophy progression, level progression (with tier bands), activity per half-month, per-platform details and platinum rarity. **OUTATIME** is at the bottom.
 
+<img src="docs/screenshots/statistics-1.png" width="600">
+<img src="docs/screenshots/statistics-2.png" width="600">
 ---
 
 ## Options (⚙️)
@@ -97,8 +109,8 @@ All files are in the `json/` folder next to the executable:
 | `User_Stat.json` | Statistics data |
 | `User_Tabs.json` | Custom tab lists |
 | `User_Note.json` | Game notes |
-| `PSN_GamesMini.json` | PSN games database |
-| `PSNP+_*.json` | Guides, unobtainable trophies and server shutdowns |
+| `PSN_GamesMini.json` | PSN games database (downloaded from GitHub) |
+| `PSNP+_*.json` | Guides, unobtainable trophies and server shutdowns (downloaded from GitHub) |
 
 Images downloaded from PlayStation servers are saved in `img/cache/` to avoid downloading them again.
 
@@ -116,7 +128,7 @@ npm run dev     # run in development
 npm run build   # release build + portable/ folder
 ```
 
-The build creates the `portable/` folder with the executable and the base `json/` files (without your personal data).
+The build creates the `portable/` folder with the executable only: the `json/` files are created and downloaded the first time the program runs.
 
 ---
 

@@ -65,11 +65,6 @@ const chkHideUnreleased = document.getElementById('chk-hide-unreleased');
 const btnOptionsCancel = document.getElementById('options-cancel');
 const btnOptionsOk = document.getElementById('options-ok');
 
-const scrapingDialog = document.getElementById('scraping-dialog');
-const txtNpsso = document.getElementById('txt-npsso');
-const btnGetData = document.getElementById('btn-get-data');
-const btnScrapingCancel = document.getElementById('scraping-cancel');
-const btnScrapingOk = document.getElementById('scraping-ok');
 
 // ==========================================================================
 // HELPERS
@@ -447,6 +442,8 @@ function switchTabTo(tabId) {
   if (/^tab\d+$/.test(tabId) && btn) {
     renderCustomTabView(btn.dataset.tabKey);
   }
+  
+  if (tabId === 'welcome') renderShutdownList();
 }
 
 
@@ -502,50 +499,6 @@ function setupOptionsDialog() {
   btnOptionsOk.addEventListener('click', saveOptions);
 }
 
-// ==========================================================================
-// SCRAPING DIALOG
-// ==========================================================================
-
-function updateScraperButtonState() {
-  btnGetData.disabled = txtNpsso.value.trim().length !== 64;
-}
-
-async function openScrapingDialog() {
-  const settings = await getSettings();
-  txtNpsso.value = settings.NPSSO || '';
-  updateScraperButtonState();
-  scrapingDialog.showModal();
-}
-
-async function handleGetData() {
-  try {
-    btnGetData.disabled = true;
-    btnGetData.textContent = 'Retrieving user data...';
-
-    // The scraper reads the token from options.json, so save it first
-    await window.api.saveConfig({ NPSSO: txtNpsso.value.trim() });
-    await window.api.runMyGames();
-    await loadStatData();
-    if (activeTabId === 'platiroom') renderPlatiroom();
-	if (activeTabId === 'statistics') renderStatistics();
-	
-    btnGetData.textContent = 'Data Updated!';
-    await loadTrophiesData();
-  } catch (err) {
-    console.error('Error while scraping user data:', err);
-    btnGetData.textContent = 'Error running script';
-  } finally {
-    setTimeout(() => {
-      btnGetData.textContent = 'Get your data';
-      updateScraperButtonState();
-    }, 3000);
-  }
-}
-
-async function saveScrapingConfig() {
-  await window.api.saveConfig({ NPSSO: txtNpsso.value.trim() });
-  scrapingDialog.close();
-}
 
 // ==========================================================================
 // GLOBAL LISTENERS
@@ -553,13 +506,7 @@ async function saveScrapingConfig() {
 
 function setupGlobalListeners() {
   document.getElementById('btn-options-dialog').addEventListener('click', openOptionsDialog);
-  document.getElementById('btn-scraping-dialog').addEventListener('click', openScrapingDialog);
-
-  txtNpsso.addEventListener('input', updateScraperButtonState);
-  btnGetData.addEventListener('click', handleGetData);
-  btnScrapingCancel.addEventListener('click', () => scrapingDialog.close());
-  btnScrapingOk.addEventListener('click', saveScrapingConfig);
-
+ 
   // Every link opens in the default browser; "#" placeholder links do nothing
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');

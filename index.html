@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Platiroom v1.0.0</title>
+  <title>Platiroom v1.1.0</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -82,7 +82,7 @@
           <div class="welcome-privacy">
             <h3>Open Source & Privacy</h3>
             <p>
-              This project is open-source and free to use. You can view or contribute to the source code on <a href="#" class="external-link tbd-link"><a href="https://github.com/Grimmjow81/Platiroom" class="external-link">GitHub</a></a>.
+              This project is open-source and free to use. You can view or contribute to the source code on <a href="https://github.com/Grimmjow81/Platiroom" class="external-link">GitHub</a>.
             </p>
             <p>
               🔒 <strong>Your Data is Safe:</strong> All your personal data and account details are saved 100% locally on your machine. No personal information is ever transmitted or shared with external servers.
@@ -313,14 +313,27 @@
         Click <a href="https://ca.account.sony.com/api/v1/ssocookie" target="_blank">here</a> to get your NPSSO token from PSN and paste below:
       </p>
       <input type="text" id="txt-npsso" maxlength="64" placeholder="Paste your 64-character NPSSO token here...">
-      
+
       <div class="scraping-grid">
         <div class="grid-row">
           <label>Account Scraper:</label>
           <button id="btn-get-data" class="btn-secondary" disabled>Get your data</button>
         </div>
       </div>
-      
+
+      <!-- Progress of the account scraper (filled by renderer-scraping.js) -->
+      <div id="scraping-progress" class="scraping-progress" hidden>
+        <div id="scraping-status" class="scraping-status"></div>
+        <div id="scraping-bar" class="scraping-bar indeterminate">
+          <div id="scraping-bar-fill" class="scraping-bar-fill"></div>
+          <span id="scraping-bar-text" class="scraping-bar-text"></span>
+        </div>
+        <details id="scraping-details" class="scraping-details">
+          <summary>Details</summary>
+          <pre id="scraping-log" class="scraping-log"></pre>
+        </details>
+      </div>
+
       <div class="dialog-actions">
         <button id="scraping-cancel" class="btn-secondary">Cancel</button>
         <button id="scraping-ok" class="btn-primary">OK</button>
@@ -330,6 +343,7 @@
 
 <script src="node_modules/chart.js/dist/chart.umd.js"></script>
 <script src="renderer-global.js"></script>
+<script src="renderer-scraping.js"></script>
 <script src="renderer-welcome.js"></script>
 <script src="renderer-list.js"></script>
 <script src="renderer-stat.js"></script>

@@ -619,6 +619,7 @@ async function handleConfirmDeleteTab() {
 
   updateAddTabButtonVisibility();
   tabDeleteDialog.close();
+  renderShutdownList();
 }
 
 // ==========================================================================
@@ -682,6 +683,17 @@ async function openAddGameModal(tabKey) {
 
 // Runs the game scraper for the selected game, then redraws the tab
 async function addGameToCustomTab(tabKey, gameKey) {
+  const addBtn = document.getElementById(`btn-add-game-${customTabId(tabKey)}`);
+  const idleLabel = 'Add new game';
+
+  const setButton = (text, { disabled = false, error = '' } = {}) => {
+    if (!addBtn) return;
+    addBtn.textContent = text;
+    addBtn.disabled = disabled;
+    addBtn.title = error;
+    addBtn.style.color = error ? 'var(--error)' : '';
+  };
+
   try {
     const listName = (await getSettings())[tabKey];
     const npwr = parseGameKey(gameKey).npwr;
@@ -691,10 +703,16 @@ async function addGameToCustomTab(tabKey, gameKey) {
       return;
     }
 
+    clearTimeout(addBtn?._resetTimer);
+    setButton('Downloading...', { disabled: true });
+
     await window.api.runScraperGame(npwr, listName);
     await renderCustomTabView(tabKey);
+    setButton(idleLabel);
   } catch (err) {
     console.error('Game scraper failed:', err);
+    setButton('Download failed', { error: err?.message ?? String(err) });
+    if (addBtn) addBtn._resetTimer = setTimeout(() => setButton(idleLabel), 4000);
   }
 }
 

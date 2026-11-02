@@ -580,10 +580,6 @@ button.disabled {
   text-decoration: underline;
 }
 
-.tbd-link {
-  color: var(--text-muted);
-  font-style: italic;
-}
 
 /* Database status (prepared lists, to be populated via JS) */
 .db-card-body {
@@ -690,9 +686,12 @@ button.disabled {
 }
 
 .shutdown-title {
+  flex-grow: 1;
+}
+
+.shutdown-name {
   font-weight: 600;
   color: var(--text-main);
-  flex-grow: 1;
 }
 
 .shutdown-platforms {
@@ -1076,7 +1075,6 @@ button.disabled {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  width: auto;
   display: block;
   object-fit: contain;
 }
@@ -1240,6 +1238,8 @@ button.disabled {
 .tag-badge,
 .guide-stats-badge,
 .shutdown-item,
+.shutdown-name.in-mygames,
+.shutdown-name.in-custom-list,
 .badge-unobtainable,
 .badge-shutdown {
   position: relative !important;
@@ -1252,6 +1252,23 @@ button.disabled {
 .badge-unobtainable,
 .badge-shutdown {
   cursor: help;
+}
+
+/* Box in the style of .db-badge, with white text */
+.shutdown-name.in-mygames,
+.shutdown-name.in-custom-list {
+  display: inline-block;
+  padding: 2px 6px;
+  margin-left: -6px;            /* the text stays aligned with the other names */
+  border-radius: 4px;
+  color: #FFFFFF;
+  cursor: help;
+}
+
+.shutdown-name.in-mygames { background-color: #dc3545; }
+.shutdown-name.in-custom-list {
+  background-color: #e0a800;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);   /* white on yellow needs help to stay readable */
 }
 
 .custom-tooltip {
@@ -1314,8 +1331,14 @@ button.disabled {
 .guide-stats-badge:hover .custom-tooltip,
 .badge-unobtainable:hover .custom-tooltip,
 .badge-shutdown:hover .custom-tooltip,
-.shutdown-item:hover .custom-tooltip {
+.shutdown-item:hover > .custom-tooltip,
+.shutdown-name:hover > .custom-tooltip {
   display: block !important;
+}
+
+/* Over the name only its own tooltip is shown, not the one of the note of the row */
+.shutdown-item:has(.shutdown-name:hover) > .custom-tooltip {
+  display: none !important;
 }
 
 
@@ -1573,6 +1596,88 @@ dialog::backdrop {
   color: var(--text-main);
   font-weight: bold;
 }
+
+#scraping-dialog { width: 560px; }
+
+.scraping-progress {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scraping-progress[hidden] { display: none; }
+
+.scraping-status {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-main);
+  overflow-wrap: anywhere;
+}
+
+.scraping-status.success { color: #1E7E34; }
+.scraping-status.warning { color: #B45309; }
+.scraping-status.error { color: var(--error); }
+
+.scraping-bar {
+  position: relative;
+  height: 18px;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scraping-bar-fill {
+  height: 100%;
+  width: 0;
+  background-color: var(--bar-chunk);
+  transition: width 0.3s ease;
+}
+
+.scraping-bar-text {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--bar-text);
+}
+
+/* Total not known yet: a block slides back and forth */
+.scraping-bar.indeterminate .scraping-bar-fill {
+  width: 30%;
+  animation: scraping-bar-slide 1.1s ease-in-out infinite alternate;
+}
+
+@keyframes scraping-bar-slide {
+  from { margin-left: 0; }
+  to { margin-left: 70%; }
+}
+
+.scraping-details summary {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.scraping-log {
+  margin: 6px 0 0;
+  height: 140px;
+  overflow: auto;
+  padding: 6px 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font: 11px/1.4 Consolas, 'Courier New', monospace;
+  color: var(--text-main);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 
 
 /* ==========================================================================

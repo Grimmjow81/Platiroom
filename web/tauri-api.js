@@ -187,15 +187,45 @@
   }
 
   let userScrapeRunning = null;
+  const scrapeListeners = new Set();   // { onProgress(event), onLog(level, text) } of the callers waiting for the run
 
-  // A second call while a run is in progress joins the running one instead of starting another
-  function runMyGames() {
+  const notifyScrapeListeners = (method, ...args) => {
+    scrapeListeners.forEach((listener) => {
+      try {
+        listener[method]?.(...args);
+      } catch (err) {
+        console.error(`Scrape listener ${method} failed:`, err);
+      }
+    });
+  };
+
+  // Logger handed to the scraper: still writes to the console and also feeds the "Details" box of the window
+  const scrapeLog = Object.fromEntries(['log', 'warn', 'error'].map((method) => [method, (...args) => {
+    console[method](...args);
+    const text = args
+      .map((arg) => (arg instanceof Error ? arg.message : typeof arg === 'string' ? arg : JSON.stringify(arg)))
+      .join(' ');
+    notifyScrapeListeners('onLog', method === 'log' ? 'info' : method, text);
+  }]));
+
+  // A second call while a run is in progress joins the running one instead of starting another.
+  // listener = { onProgress, onLog }: both optional. Resolves with the stats of the scraper.
+  function runMyGames(listener = {}) {
+    scrapeListeners.add(listener);
+
     if (!userScrapeRunning) {
       userScrapeRunning = (async () => {
         const { runUserScraper } = await import('./scraper-user.js');
-        await runUserScraper({ psn: await createPsn(), storage });
-        return true;
-      })().finally(() => { userScrapeRunning = null; });
+        return await runUserScraper({
+          psn: await createPsn(),
+          storage,
+          log: scrapeLog,
+          onProgress: (event) => notifyScrapeListeners('onProgress', event)
+        });
+      })().finally(() => {
+        userScrapeRunning = null;
+        scrapeListeners.clear();
+      });
     }
     return userScrapeRunning;
   }

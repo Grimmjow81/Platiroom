@@ -440,9 +440,18 @@ async function fetchTrophyDetails({ psn, auth, apiNpwrId, platforms, log }) {
   }
 }
 
-export async function runUserScraper({ psn, storage, log = console, delayMs = 300 }) {
-  const stats = { addedUpdated: 0, skipped: 0, failed: 0 };
+export async function runUserScraper({ psn, storage, log = console, delayMs = 300, onProgress = () => {} }) {
+  const stats = { addedUpdated: 0, skipped: 0, failed: 0, failedGames: [], aborted: false };
   const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  // The window must never be able to stop the scraper
+  const progress = (phase, data = {}) => {
+    try {
+      onProgress({ phase, ...data });
+    } catch (err) {
+      console.error('Progress callback failed:', err);
+    }
+  };
 
   // --- Existing game list ---
   let gameList = {};
@@ -483,6 +492,8 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
   }
 
   // --- Authentication ---
+  progress('auth');
+
   let npsso;
   try {
     npsso = JSON.parse(await storage.read(CONFIG_FILE))?.SETTINGS?.NPSSO;
@@ -495,6 +506,8 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
   const auth = await psn.exchangeCodeForAccessToken(authCode);
 
   // --- Profile ---
+  progress('profile');
+
   try {
     const profileResponse = await psn.getProfileFromUserName(auth, 'me');
     const profileData = profileResponse.profile || profileResponse;
@@ -522,6 +535,7 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
   }
 
   // --- Title list ---
+  progress('titles');
   log.log('🌐 Retrieving complete trophy list structure from PSN...');
 
   const allPsnTitles = [];
@@ -541,14 +555,17 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
   } catch (err) {
     log.error('❌ Critical error fetching user titles list:', err.message);
     stats.failed++;
+    stats.aborted = true;
     // The original script stopped here (exit code 0) without saving anything
     return stats;
   }
 
   log.log(`📋 Found ${allPsnTitles.length} total games on PSN. Checking for updates...`);
 
+  // --- Pre-pass: which games changed since the last run ---
   const updatedSessionMap = new Map();
   const psnOrderedKeys = [];
+  const pending = [];   // games that must be downloaded
 
   for (const titleInfo of allPsnTitles) {
     const apiNpwrId = titleInfo.npCommunicationId;
@@ -596,11 +613,23 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
       continue;
     }
 
+    pending.push({ title, uniqueKey, apiNpwrId, platformsArray, baseCurrentData, dbMatch });
+  }
+
+  progress('plan', { found: allPsnTitles.length, toUpdate: pending.length, skipped: stats.skipped });
+
+  // --- Download the games that changed ---
+  for (const [index, item] of pending.entries()) {
+    const { title, uniqueKey, apiNpwrId, platformsArray, baseCurrentData, dbMatch } = item;
+
+    progress('game', { current: index + 1, total: pending.length, title });
+
     const detailsResult = await fetchTrophyDetails({ psn, auth, apiNpwrId, platforms: platformsArray, log });
 
     if (!detailsResult) {
       log.warn(`⚠ Skipping update for ${uniqueKey} due to API server response issue.`);
       stats.failed++;
+      stats.failedGames.push(title);
       continue;
     }
 
@@ -625,6 +654,8 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
 
     await sleep(delayMs);
   }
+
+  progress('save');
 
   // --- Final ordered list: PSN order first, then games no longer returned by PSN ---
   const finalOrderedGameList = {};

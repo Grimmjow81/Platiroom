@@ -1,0 +1,9 @@
+#dependency
+node_modules/
+dist/
+portable/
+src-tauri/target/
+src-tauri/gen/
+
+#extra
+app-icon.png

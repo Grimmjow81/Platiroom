@@ -63,10 +63,11 @@ Introduction, credits, database update status and the list of upcoming server sh
 - **In Progress**: hides games and DLC that are 100% complete.
 - **A-Z Sort**: switch to alphabetical order (normally last games played are on the top list).
 - **Search**: by title, platform, region or NPWR code.
-- **Expanding**: click a game to see its groups (base game and DLC), then click a group to see the individual trophies.
 - **PSNP+ Badges**: difficulty, number of playthroughs needed, estimated hours, missable ⚠️, buggy 🐞, online 🌐 and unobtainable ❌ trophies, and server shutdown ⏳.
 - **Guide buttons**: open the linked guides and walkthroughs in your browser.
 - **Notes**: right-click the 📝 icon to write or edit a note; leave the text empty to remove it. Hover over the icon to read it.
+- **Expanding**: click a game to see its groups (base game and DLC), then click a group to see the individual trophies.
+- **Trophy Guide**: open the linked guides in your browser, at the trophy bookmark.
 
 <img src="docs/screenshots/my-games-exp.png" width="600">
 
@@ -76,6 +77,8 @@ Introduction, credits, database update status and the list of upcoming server sh
 - **Add new game**: search the PSN database (at least 3 characters) and pick a game. Trophy data is downloaded from PSN.
 - The ✕ button on each row removes the game from the list.
 - Tabs show trophy information but not progress, since they are not linked to your account.
+
+<img src="docs/screenshots/custom-tab.png" width="600">
 
 ### Platiroom
 A list of all your platinums (most recent first), with side tables.

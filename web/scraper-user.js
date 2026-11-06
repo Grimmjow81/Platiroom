@@ -525,7 +525,8 @@ export async function runUserScraper({ psn, storage, log = console, delayMs = 30
         accountId: profileData.accountId,
         icon: profileData.avatarUrls?.[0]?.avatarUrl || '',
         level: trophySummary.trophyLevel ?? null,
-        tier: trophySummary.tier ?? null
+        tier: trophySummary.tier ?? null,
+		plus: Boolean(profileData.plus)
       };
       await storage.write(ACCOUNT_FILE, JSON.stringify(accountInfo, null, 2));
       log.log(`🔑 Account: ${profileData.onlineId} | Level: ${trophySummary.trophyLevel ?? 'N/A'} | Tier: ${trophySummary.tier ?? 'N/A'}`);

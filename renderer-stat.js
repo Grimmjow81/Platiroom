@@ -363,7 +363,7 @@ const PS4_COLOR = '#104E9B';
 const PSVITA_COLOR = '#4A89DC';
 const PS5_COLOR = '#ECECE6';            // slightly dirty white
 const PS5_BORDER_COLOR = '#B5B5AD';     // a white border would disappear on the white card
-const MULTIPLATFORM_COLOR = '#8E9195';  // PSN anniversary gray
+const VR_COLOR = '#8E9195';  			// PSN anniversary gray
 
 // Tile of 45 degree stripes alternating two colors, used as a canvas fill.
 // The two colors never overlap, so semi-transparent colors keep their transparency.
@@ -403,8 +403,8 @@ function getPlatformStyle(key, alpha = 1) {
     case 'ps4': return { fill: fillOf(PS4_COLOR), border: PS4_COLOR };
     case 'psvita': return { fill: fillOf(PSVITA_COLOR), border: PSVITA_COLOR };
     case 'ps5': return { fill: fillOf(PS5_COLOR), border: PS5_BORDER_COLOR };
-    case 'vr': return { fill: createStripePattern(fillOf(PS5_COLOR), fillOf(PS4_COLOR)), border: PS4_COLOR };
-    case 'multiplatform': return { fill: fillOf(MULTIPLATFORM_COLOR), border: MULTIPLATFORM_COLOR };
+	case 'vr': return { fill: fillOf(VR_COLOR), border: VR_COLOR };
+	case 'multiplatform': return {fill: createStripePattern(fillOf(PS5_COLOR), fillOf(PSVITA_COLOR)), border: PSVITA_COLOR};
     default: {
       const brand = cssColor('--brand');
       return { fill: fillOf(brand), border: brand };

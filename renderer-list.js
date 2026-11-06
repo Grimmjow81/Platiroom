@@ -43,6 +43,7 @@ const MYGAMES_COLUMNS_CONFIG = {
   trophyCounts: true,  // Trophy counts per type
   progress: true,      // Progress column (games and DLC)
   trophyData: true,    // Rarity/rate and date earned columns (trophy table)
+  guide: true,        // Guide column of the trophy table
   expand: true,        // Expand arrow
   notes: true          // Note icon (right click to edit)
 };
@@ -56,6 +57,7 @@ const CUSTOM_TABS_COLUMNS_CONFIG = {
   trophyCounts: true,
   progress: false,
   trophyData: false,
+  guide: true,
   expand: true,
   notes: true
 };
@@ -785,6 +787,38 @@ function getGuideBadgeImage(url) {
   return badge ? badge[1] : null;
 }
 
+// Builders of the per-trophy link, one per supported site (icon order: PSNProfiles, PlayStationTrophies)
+const TROPHY_LINK_SOURCES = [
+  {
+    domain: 'psnprofiles.com',
+    needsGameId: true,
+    build: (guideUrl, gameId, trophy) => `https://psnprofiles.com/trophy/${gameId}/${Number(trophy.tId) + 1}`
+  },
+  {
+    domain: 'playstationtrophies.org',
+    needsGameId: false,
+    build: (guideUrl, gameId, trophy) => `${guideUrl.split('#')[0]}#item-${trophy.tId}`
+  }
+];
+
+// Functions trophy -> url for a group (empty array = no guide, so no buttons).
+// Only the first link of each site is used. The game "id" is read from the group data, then from the game entry
+// (DLC share the PSNProfiles page of the base game).
+function getTrophyGuideSources(guideEntry, groupGuideData) {
+  if (!groupGuideData) return [];
+
+  const links = extractGuideLinks(groupGuideData);
+  const gameId = groupGuideData.id ?? guideEntry?.id;
+  const sources = [];
+
+  for (const { domain, needsGameId, build } of TROPHY_LINK_SOURCES) {
+    const link = links.find(l => l.url.toLowerCase().includes(domain));
+    if (!link || (needsGameId && gameId == null)) continue;
+    sources.push((trophy) => build(link.url, gameId, trophy));
+  }
+  return sources;
+}
+
 // ==========================================================================
 // UI COMPONENTS
 // ==========================================================================
@@ -932,7 +966,21 @@ function createRarityCell(trophy) {
   return cell;
 }
 
-function createTrophyRow(trophy, game, config, unobInfo, isEarned) {
+function createEmptyGuideCell() {
+  return createEl('td', 'center-cell guide-cell');
+}
+
+// Platinum stays empty
+function createTrophyGuideCell(trophy, guideSources) {
+  const cell = createEmptyGuideCell();
+  if (String(trophy.tType).trim().toLowerCase() === 'platinum') return cell;
+
+  const links = guideSources.map(makeUrl => ({ type: 'G', url: makeUrl(trophy) }));
+  cell.appendChild(createGuideButtonsComponent(links));
+  return cell;
+}
+
+function createTrophyRow(trophy, game, config, unobInfo, isEarned, buildGuideCell) {
   const row = createEl('tr', isEarned ? 'trophy-row-earned' : '');
   const prefix = getIconPrefix(game.isPS5);
 
@@ -956,6 +1004,9 @@ function createTrophyRow(trophy, game, config, unobInfo, isEarned) {
   // Rarity
   if (config.trophyData) row.appendChild(createRarityCell(trophy));
 
+  // Guide
+  if (config.guide) row.appendChild(buildGuideCell(trophy));
+  
   // Warning (unobtainable)
   const warningCell = createEl('td', 'center-cell');
   warningCell.style.fontSize = '12px';
@@ -980,7 +1031,7 @@ function createTrophyRow(trophy, game, config, unobInfo, isEarned) {
   return row;
 }
 
-function createTrophiesTableComponent(trophies, game, config) {
+function createTrophiesTableComponent(trophies, game, config, guideSources = []) {
   const table = createEl('table', 'trophies-table');
 
   table.innerHTML = `
@@ -989,6 +1040,7 @@ function createTrophiesTableComponent(trophies, game, config) {
         <th style="width: 70px; text-align: center;">Icon</th>
         <th style="width: 40px; text-align: center;">Type</th>
         ${config.trophyData ? '<th style="width: 60px; text-align: center;">Rarity</th>' : ''}
+        ${config.guide ? '<th style="width: 70px; text-align: center;">Guide</th>' : ''}
         <th style="width: 40px; text-align: center;">Warning</th>
         <th style="width: 25%;">Trophy</th>
         <th>Description</th>
@@ -997,13 +1049,18 @@ function createTrophiesTableComponent(trophies, game, config) {
     </thead>
   `;
 
+  // The guide check is done once for the whole group, not once per trophy
+  const buildGuideCell = guideSources.length > 0
+    ? (trophy) => createTrophyGuideCell(trophy, guideSources)
+    : createEmptyGuideCell;
+
   const unobInfo = unobtainableMap[game.npCommunicationId];
   const tbody = document.createElement('tbody');
 
   trophies.forEach(trophy => {
     const isEarned = isTrophyEarned(trophy);
     if (filterInProgressActive && isEarned) return;
-    tbody.appendChild(createTrophyRow(trophy, game, config, unobInfo, isEarned));
+    tbody.appendChild(createTrophyRow(trophy, game, config, unobInfo, isEarned, buildGuideCell));
   });
 
   table.appendChild(tbody);
@@ -1075,14 +1132,14 @@ function createGroupRow(group, game, stats, groupGuideData, config) {
   return row;
 }
 
-function createGroupContainer(group, game, stats, groupGuideData, groupsWrapper, config) {
+function createGroupContainer(group, game, stats, groupGuideData, groupsWrapper, config, guideSources) {
   const container = createEl('div', 'group-container');
   const row = createGroupRow(group, game, stats, groupGuideData, config);
   container.appendChild(row);
 
   const trophiesBox = createEl('div', 'group-trophies-container');
   if (stats.trophies.length > 0) {
-    trophiesBox.appendChild(createTrophiesTableComponent(stats.trophies, game, config));
+    trophiesBox.appendChild(createTrophiesTableComponent(stats.trophies, game, config, guideSources));
   } else {
     const emptyMsg = createEl('div', 'no-trophies-msg', 'No trophies found for this DLC.');
     emptyMsg.style.cssText = 'padding: 12px; color: var(--text-muted); font-size: 12px; font-style: italic; text-align: center;';
@@ -1144,8 +1201,8 @@ function createPlatinumCell(game) {
 
   const img = createEl('img');
   img.src = `img/${getIconPrefix(game.isPS5)}_platinum.png`;
-  img.style.width = '30px';
-  img.style.height = '30px';
+  img.style.height = '35px';
+  img.style.width = 'auto';
   img.style.opacity = earned ? '1' : '0.4';
   cell.appendChild(img);
 
@@ -1243,7 +1300,8 @@ function createExpandableGameContainer(game, tabKey = null) {
       if (filterInProgressActive && stats.progress === 100) return;
 
       const groupGuideData = getGroupGuideData(guideEntry, group);
-      groupsWrapper.appendChild(createGroupContainer(group, game, stats, groupGuideData, groupsWrapper, config));
+      const guideSources = getTrophyGuideSources(guideEntry, groupGuideData);
+      groupsWrapper.appendChild(createGroupContainer(group, game, stats, groupGuideData, groupsWrapper, config, guideSources));
     });
 
     details.appendChild(groupsWrapper);

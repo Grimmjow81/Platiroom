@@ -341,6 +341,7 @@ async function loadSettings() {
 async function loadProfileInfo() {
   const data = await window.api.readLocalJson(DATA_FILES.account);
   if (!data) return;
+  document.getElementById('plus-badge').style.display = data.plus ? 'block' : 'none';
 
   if (data.onlineId) {
     accountNameLbl.textContent = String(data.onlineId).trim();

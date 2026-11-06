@@ -224,6 +224,24 @@ button.disabled {
   font-size: 32px;
 }
 
+.avatar-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plus-badge {
+  display: none;
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
 .account-info {
   display: flex;
   flex-direction: column;
@@ -1100,6 +1118,13 @@ button.disabled {
   background-color: var(--bg-window);
 }
 
+.guide-cell .group-guide-links {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+}
 
 /* ==========================================================================
    9. TROPHY TABLE

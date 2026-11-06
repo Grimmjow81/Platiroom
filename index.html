@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Platiroom v1.1.0</title>
+  <title>Platiroom v1.2.0</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,10 +10,13 @@
   <!-- MAIN NAVBAR -->
   <header class="navbar">
     <div class="profile-widget">
-      <img id="avatar" alt="🎮" style="display:none;" onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='inline-block';">
-      <span id="avatar-placeholder" class="emoji-avatar" style="display:none;">🎮</span>
+      <div class="avatar-wrap">
+		<img id="avatar" alt="🎮" style="display:none;" onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='inline-block';">
+		<span id="avatar-placeholder" class="emoji-avatar" style="display:none;">🎮</span>
+		<img id="plus-badge" class="plus-badge" src="img/plus.svg" alt="PlayStation Plus" title="PlayStation Plus">
+	  </div>
     <div class="account-info">
-      <h1 id="account-name">Trophies</h1>
+      <h1 id="account-name">Account</h1>
       <div id="account-level-widget" class="account-level-widget" style="display: none;">
         <img id="tier-icon" class="tier-icon" src="" alt="Tier">
         <span id="account-level" class="account-level"></span>

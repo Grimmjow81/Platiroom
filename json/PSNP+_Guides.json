@@ -1225,7 +1225,8 @@
     "G3": "https://knoef.info/trophy-guides/ps4-guides/a-plague-tale-innocence-trophy-guide/",
     "G4": "https://platget.com/guides/a-plague-tale-innocence-trophy-guide/",
     "G5": "https://www.playstationtrophies.org/game/a-plague-tale-innocence/guide/",
-    "G6": "https://www.powerpyx.com/guide/a-plague-tale-innocence-trophy-guide-roadmap/"
+    "G6": "https://www.powerpyx.com/guide/a-plague-tale-innocence-trophy-guide-roadmap/",
+    "G7": "trophy-tom/a-plague-tale-innocence-trophy-guide/"
   },
   "A Plague Tale: Innocence (NPWR22506)": {
     "id": 13342,
@@ -1236,7 +1237,8 @@
     "G3": "https://knoef.info/trophy-guides/ps4-guides/a-plague-tale-innocence-trophy-guide/",
     "G4": "https://platget.com/guides/a-plague-tale-innocence-trophy-guide/",
     "G5": "https://www.playstationtrophies.org/game/a-plague-tale-innocence/guide/",
-    "G6": "https://www.powerpyx.com/guide/a-plague-tale-innocence-trophy-guide-roadmap/"
+    "G6": "https://www.powerpyx.com/guide/a-plague-tale-innocence-trophy-guide-roadmap/",
+    "G7": "trophy-tom/a-plague-tale-innocence-trophy-guide/"
   },
   "A Plague Tale: Requiem (NPWR22997)": {
     "id": 18796,
@@ -1631,7 +1633,8 @@
     "G": "https://psnprofiles.com/guide/4785",
     "G2": "https://psnprofiles.com/guide/11956",
     "G3": "https://platget.com/guides/abzu-trophy-guide/",
-    "G4": "https://www.playstationtrophies.org/game/abzu/guide/"
+    "G4": "https://www.playstationtrophies.org/game/abzu/guide/",
+    "G5": "trophy-tom/abzu-trophy-guide/"
   },
   "Accel World vs. Sword Art Online: Millennium Twilight (NPWR12421)": {
     "id": 5936,
@@ -1907,6 +1910,12 @@
     "T": [1, 10, 4, 0],
     "G": "https://www.playstationtrophies.org/game/adams-venture-origins/guide/"
   },
+  "Adorable Adventures (NPWR59877)": {
+    "id": 40874,
+    "R": [2, 1, 10, 2],
+    "T": [1, 2, 10, 32],
+    "G": "trophy-tom/adorable-adventures-trophy-guide/"
+  },
   "Adore (NPWR38099)": {
     "id": 23197,
     "R": [5, 1, 30, 0],
@@ -1921,13 +1930,13 @@
   },
   "Advanced V.G. Saturn Tribute (NPWR48277)": {
     "id": 34218,
-    "R": [2, 10, 3, 0],
+    "R": [2, 2, 2, 0],
     "T": [1, 10, 2, 1],
     "G": "https://psnprofiles.com/guide/23582"
   },
   "Advanced V.G. Saturn Tribute (NPWR48279)": {
     "id": 34224,
-    "R": [2, 10, 3, 0],
+    "R": [2, 2, 2, 0],
     "T": [1, 10, 2, 1],
     "G": "https://psnprofiles.com/guide/23582"
   },
@@ -2102,6 +2111,7 @@
   "AeternoBlade (NPWR04540)": {
     "id": 3325,
     "R": [4, 2, 27.5, 2],
+    "T": [0, 1, 2, 11],
     "G": "https://www.playstationtrophies.org/game/aeterno-blade/guide/"
   },
   "AEW: Fight Forever (NPWR31794)": {
@@ -3272,6 +3282,13 @@
   "All Motors Racing Simulator (NPWR59575)": {
     "id": 40000,
     "R": [6, 1, 17.5, 4],
+    "T": [0, 1, 4, 6],
+    "G": "https://www.playstationtrophies.org/game/warhammer-40k-space-marine/guide/"
+  },
+  "All Motors Racing Simulator (NPWR59576)": {
+    "id": 39956,
+    "R": [6, 1, 17.5, 4],
+    "T": [0, 1, 4, 6],
     "G": "https://www.playstationtrophies.org/game/warhammer-40k-space-marine/guide/"
   },
   "All The Words She Wrote (NPWR49655)": {
@@ -4073,6 +4090,18 @@
     "T": [1, 5, 11, 18],
     "G": "https://psnprofiles.com/guide/13257"
   },
+  "Antonblast (NPWR52260)": {
+    "id": 43138,
+    "R": [7, 4, 40, 0],
+    "T": [1, 7, 8, 12],
+    "G": "https://videogamelog.com/trophy-guides/antonblast/"
+  },
+  "Antonblast (NPWR52263)": {
+    "id": 43131,
+    "R": [7, 4, 40, 0],
+    "T": [1, 7, 8, 12],
+    "G": "https://videogamelog.com/trophy-guides/antonblast/"
+  },
   "Anywhere (NPWR11967)": {
     "id": 5662,
     "R": [2, 1, 1.5, 0],
@@ -4371,6 +4400,7 @@
   "Arcade Archives: Arkanoid (NPWR55996)": {
     "id": 41451,
     "R": [2, 1, 80, 4],
+    "T": [0, 3, 1, 2],
     "G": "https://www.playstationtrophies.org/game/arcade-archives-arkanoid/guide/"
   },
   "Arcade Archives: Armed F (NPWR10571)": {
@@ -5062,7 +5092,7 @@
   },
   "Arizona Sunshine Remake (NPWR44199)": {
     "id": 30046,
-    "R": [4, 1, 10, 4],
+    "R": [5, 1, 10, 4],
     "T": [1, 5, 8, 24],
     "G": "https://psnprofiles.com/guide/21954",
     "Damned DLZ DLC": {
@@ -6306,6 +6336,7 @@
     "G2": "https://platget.com/guides/astros-playroom-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/astros-playroom/guide/",
     "G4": "https://www.powerpyx.com/guide/astros-playroom-trophy-guide-roadmap/",
+    "G5": "trophy-tom/astros-playroom-trophy-guide/",
     "ASTRO’s PLAYROOM [ADD-ON] DLC": {
       "R": [3, 1, 3, 0],
       "T": [0, 2, 0, 1],
@@ -7557,6 +7588,12 @@
     "T": [1, 1, 4, 55],
     "G": "https://psnprofiles.com/guide/17619"
   },
+  "Ball x Pit (NPWR54095)": {
+    "id": 36781,
+    "R": [4, 50, 35, 0],
+    "T": [1, 1, 1, 61],
+    "G": "https://psnprofiles.com/guide/26211"
+  },
   "Balthazar's Dreams (NPWR19216)": {
     "id": 10099,
     "R": [4, 1, 4, 0],
@@ -7651,6 +7688,18 @@
     "T": [1, 8, 8, 4],
     "G": "https://psnprofiles.com/guide/3674",
     "G2": "https://www.playstationtrophies.org/game/barbie-and-her-sisters-puppy-rescue/guide/"
+  },
+  "Barbie Rewind (NPWR56722)": {
+    "id": 43463,
+    "R": [1, 1, 1, 0],
+    "T": [1, 11, 0, 0],
+    "G": "https://psnprofiles.com/guide/26393"
+  },
+  "Barbie Rewind (NPWR56723)": {
+    "id": 43465,
+    "R": [1, 1, 1, 0],
+    "T": [1, 11, 0, 0],
+    "G": "https://psnprofiles.com/guide/26393"
   },
   "Barbie: Horse Trails (NPWR44767)": {
     "id": 37350,
@@ -8284,7 +8333,7 @@
       "G": "https://psnprofiles.com/guide/433"
     },
     "Second Assault DLC": {
-      "R": [6, 1, 2, 4],
+      "R": [6, 1, 2, 5],
       "T": [0, 0, 2, 3],
       "G": "https://psnprofiles.com/guide/7751"
     }
@@ -8318,7 +8367,7 @@
       "G": "https://psnprofiles.com/guide/433"
     },
     "Second Assault DLC": {
-      "R": [6, 1, 2, 4],
+      "R": [6, 1, 2, 5],
       "T": [0, 0, 2, 3],
       "G": "https://psnprofiles.com/guide/7751"
     }
@@ -8530,6 +8579,12 @@
     "T": [1, 3, 8, 34],
     "G": "https://psnprofiles.com/guide/9964",
     "G2": "https://www.playstationtrophies.org/game/beach-buggy-racing/guide/"
+  },
+  "BeamNG.Drive (NPWR60685)": {
+    "id": 43153,
+    "R": [2, 1, 25, 0],
+    "T": [1, 2, 3, 49],
+    "G": "https://psnprofiles.com/guide/26276"
   },
   "Bear With Me (NPWR18465)": {
     "id": 9445,
@@ -9512,6 +9567,12 @@
     "R": [5, 1, 18, 5],
     "T": [1, 2, 8, 40],
     "G": "https://www.playstationtrophies.org/game/birds-of-steel/guide/"
+  },
+  "Birds Watching (NPWR61702)": {
+    "id": 42611,
+    "R": [2, 3, 3, 0],
+    "T": [1, 7, 9, 7],
+    "G": "https://psnprofiles.com/guide/26318"
   },
   "Birthday of Midnight (NPWR21205)": {
     "id": 11497,
@@ -11411,6 +11472,7 @@
   "Boss (NPWR06455)": {
     "id": 3243,
     "R": [2, 1, 8, 0],
+    "T": [0, 1, 1, 13],
     "G": "https://www.playstationtrophies.org/game/boss/guide/"
   },
   "Bot Gaiden (NPWR29424)": {
@@ -11692,7 +11754,7 @@
   },
   "Brawlhalla (NPWR10979)": {
     "id": 6807,
-    "R": [6, 10, 120, 4],
+    "R": [6, 1, 120, 4],
     "T": [1, 5, 6, 28],
     "G": "https://psnprofiles.com/guide/7611",
     "Expansion Set 1 DLC": {
@@ -11770,6 +11832,30 @@
     "R": [2, 1, 24, 0],
     "T": [0, 0, 1, 19],
     "G": "https://www.playstationtrophies.org/game/breakquest-extra-evolution/guide/"
+  },
+  "Breathedge (NPWR23237)": {
+    "id": 12647,
+    "R": [0, 1, 0, 2],
+    "T": [1, 0, 2, 4],
+    "G": "trophy-tom/breathedge-trophy-guide/"
+  },
+  "Breathedge (NPWR23238)": {
+    "id": 12648,
+    "R": [0, 1, 0, 2],
+    "T": [1, 0, 2, 4],
+    "G": "trophy-tom/breathedge-trophy-guide/"
+  },
+  "Breathedge (NPWR25679)": {
+    "id": 15556,
+    "R": [0, 1, 0, 2],
+    "T": [1, 0, 2, 4],
+    "G": "trophy-tom/breathedge-trophy-guide/"
+  },
+  "Breathedge (NPWR25680)": {
+    "id": 15559,
+    "R": [0, 1, 0, 2],
+    "T": [1, 0, 2, 4],
+    "G": "trophy-tom/breathedge-trophy-guide/"
   },
   "Brewmaster (NPWR24538)": {
     "id": 18997,
@@ -12220,13 +12306,14 @@
   },
   "Bugsnax (NPWR21279)": {
     "id": 11772,
-    "R": [2, 1, 15, 1],
+    "R": [2, 1, 15, 3],
     "T": [1, 6, 10, 11],
     "G": "https://psnprofiles.com/guide/11217",
     "G2": "https://platget.com/guides/bugsnax-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/bugsnax-ps5/guide/",
     "G4": "https://www.playstationtrophies.org/game/bugsnax/guide/",
     "G5": "https://www.powerpyx.com/guide/bugsnax-trophy-guide-roadmap/",
+    "G6": "trophy-tom/bugsnax-trophy-guide/",
     "The Isle of Bigsnax DLC": {
       "R": [2, 1, 10, 0],
       "T": [0, 1, 2, 0],
@@ -12235,13 +12322,14 @@
   },
   "Bugsnax (NPWR22251)": {
     "id": 11818,
-    "R": [2, 1, 15, 1],
+    "R": [2, 1, 15, 3],
     "T": [1, 6, 10, 11],
     "G": "https://psnprofiles.com/guide/11217",
     "G2": "https://platget.com/guides/bugsnax-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/bugsnax-ps5/guide/",
     "G4": "https://www.playstationtrophies.org/game/bugsnax/guide/",
     "G5": "https://www.powerpyx.com/guide/bugsnax-trophy-guide-roadmap/",
+    "G6": "trophy-tom/bugsnax-trophy-guide/",
     "The Isle of Bigsnax DLC": {
       "R": [2, 1, 10, 0],
       "T": [0, 1, 2, 0],
@@ -14282,6 +14370,13 @@
     "G2": "https://www.playstationtrophies.org/game/castlevania-requiem/guide/",
     "W": "https://psnprofiles.com/guide/7978"
   },
+  "Castlevania: Belmont's Curse (NPWR60601)": {
+    "id": 43087,
+    "R": [6, 2, 30, 0],
+    "T": [1, 5, 10, 14],
+    "G": "https://psnprofiles.com/guide/26224",
+    "W": "https://psnprofiles.com/guide/26225"
+  },
   "Castlevania: Dominus Collection (NPWR41898)": {
     "id": 29023,
     "R": [3, 6, 30, 0],
@@ -15669,9 +15764,10 @@
   },
   "Clive Barker's Hellraiser: Revival (NPWR47027)": {
     "id": 43053,
-    "R": [4, 1, 9, 3],
+    "R": [3, 1, 8, 3],
     "T": [1, 3, 9, 32],
-    "G": "https://www.powerpyx.com/guide/clive-barkers-hellraiser-revival-trophy-guide-roadmap/"
+    "G": "https://psnprofiles.com/guide/26407",
+    "G2": "https://www.powerpyx.com/guide/clive-barkers-hellraiser-revival-trophy-guide-roadmap/"
   },
   "Clock Tower: Rewind (NPWR42553)": {
     "id": 30142,
@@ -18923,37 +19019,43 @@
     "id": 11964,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "DARQ (NPWR23680)": {
     "id": 12592,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "DARQ (NPWR23681)": {
     "id": 12588,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "DARQ: Ultimate Edition (NPWR30755)": {
     "id": 19581,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "DARQ: Ultimate Edition (NPWR31032)": {
     "id": 20333,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "DARQ: Ultimate Edition (NPWR31033)": {
     "id": 23155,
     "R": [5, 1, 3, 2],
     "T": [1, 8, 8, 1],
-    "G": "https://psnprofiles.com/guide/21729"
+    "G": "https://psnprofiles.com/guide/21729",
+    "G2": "trophy-tom/darq-trophy-guide/"
   },
   "Darwin Project (NPWR18763)": {
     "id": 10221,
@@ -23083,6 +23185,11 @@
     "T": [1, 2, 10, 38],
     "G": "https://psnprofiles.com/guide/1450",
     "G2": "https://www.playstationtrophies.org/game/dirt-3/guide/",
+    "Monte Carlo Track DLC": {
+      "R": [1, 1, 3, 4],
+      "T": [0, 0, 0, 4],
+      "G": "https://psnprofiles.com/guide/26258"
+    },
     "Mud and Guts Car DLC": {
       "R": [2, 1, 1, 4],
       "T": [0, 0, 1, 3],
@@ -23092,6 +23199,11 @@
       "R": [2, 1, 1, 4],
       "T": [0, 0, 1, 3],
       "G": "https://psnprofiles.com/guide/15042"
+    },
+    "X Games Asia Track DLC": {
+      "R": [1, 1, 3, 4],
+      "T": [0, 0, 0, 4],
+      "G": "https://psnprofiles.com/guide/26260"
     }
   },
   "Dirt 4 (NPWR12336)": {
@@ -26368,6 +26480,7 @@
   "Dungeon Defenders (NPWR01298)": {
     "id": 1223,
     "R": [8.5, 1, 50, 0],
+    "T": [1, 1, 9, 46],
     "G": "https://www.playstationtrophies.org/game/dungeon-defenders/guide/"
   },
   "Dungeon Encounters (NPWR22680)": {
@@ -26807,6 +26920,12 @@
     "T": [0, 1, 5, 5],
     "G": "https://www.playstationtrophies.org/game/dying-reborn-vr-na-eu-ps4/guide/"
   },
+  "Dynasty Warriors 3: Remastered (NPWR57680)": {
+    "id": 42965,
+    "R": [4, 39, 125, 0],
+    "T": [1, 3, 12, 28],
+    "G": "https://psnprofiles.com/guide/26142"
+  },
   "Dynasty Warriors 6 Empires (NPWR00720)": {
     "id": 135,
     "R": [2, 1, 20, 0],
@@ -27163,7 +27282,8 @@
     "id": 35789,
     "R": [4, 2, 25, 2],
     "T": [1, 3, 11, 30],
-    "G": "https://psnprofiles.com/guide/24815"
+    "G": "https://psnprofiles.com/guide/24815",
+    "G2": "trophy-tom/echoes-of-the-end-trophy-guide/"
   },
   "Ecolibrium (NPWR02970)": {
     "id": 1606,
@@ -31092,9 +31212,10 @@
   },
   "Final Fantasy Resonance (NPWR58353)": {
     "id": 43178,
-    "R": [4, 1, 55, 0],
+    "R": [3, 1, 50, 0],
     "T": [1, 4, 7, 28],
-    "G": "https://www.powerpyx.com/guide/final-fantasy-resonance-trophy-guide-roadmap/"
+    "G": "https://psnprofiles.com/guide/26371",
+    "G2": "https://www.powerpyx.com/guide/final-fantasy-resonance-trophy-guide-roadmap/"
   },
   "Final Fantasy Tactics: The Ivalice Chronicles (NPWR49999)": {
     "id": 37002,
@@ -31291,7 +31412,8 @@
     "R": [5, 1, 90, 2],
     "T": [1, 5, 9, 21],
     "G": "https://psnprofiles.com/guide/138",
-    "G2": "https://www.playstationtrophies.org/game/final-fantasy-xiii/guide/"
+    "G2": "https://www.playstationtrophies.org/game/final-fantasy-xiii/guide/",
+    "W": "https://psnprofiles.com/guide/23682"
   },
   "Final Fantasy XIII-2 (NPWR02391)": {
     "id": 1226,
@@ -31758,7 +31880,7 @@
       "G": "https://psnprofiles.com/guide/23953"
     },
     "Summer Camp DLC": {
-      "R": [3, 1, 6, 0],
+      "R": [3, 1, 4, 4],
       "T": [0, 0, 2, 7],
       "G": "https://psnprofiles.com/guide/23540"
     }
@@ -35213,7 +35335,24 @@
     "id": 19276,
     "R": [3, 1, 25, 0],
     "T": [1, 3, 11, 24],
-    "G": "https://psnprofiles.com/guide/15561"
+    "G": "https://psnprofiles.com/guide/15561",
+    "W": "trophy-tom/goat-simulator-3-all-gears/",
+    "Goat Simulator 3 – Multiverse of Nonsense DLC": {
+      "R": [0, 1, 0, 0],
+      "T": [1, 3, 11, 24],
+      "G": "trophy-tom/gs3-multiverse-of-nonsense-dlc-trophy-guide/"
+    }
+  },
+  "Goat Simulator 3 (NPWR42376)": {
+    "id": 30185,
+    "R": [0, 1, 0, 0],
+    "T": [1, 3, 11, 24],
+    "W": "trophy-tom/goat-simulator-3-all-gears/",
+    "Goat Simulator 3 – Multiverse of Nonsense DLC": {
+      "R": [0, 1, 0, 0],
+      "T": [1, 3, 11, 24],
+      "G": "trophy-tom/gs3-multiverse-of-nonsense-dlc-trophy-guide/"
+    }
   },
   "Goat Simulator Remastered (NPWR27453)": {
     "id": 30452,
@@ -35682,6 +35821,12 @@
     "T": [1, 5, 12, 16],
     "G": "https://psnprofiles.com/guide/21529"
   },
+  "Gorilla Attack (NPWR49138)": {
+    "id": 31625,
+    "R": [2, 1, 2, 0],
+    "T": [1, 11, 0, 0],
+    "G": "https://psnprofiles.com/guide/25955"
+  },
   "Gorilla Tag (NPWR39907)": {
     "id": 30471,
     "R": [6, 1, 7, 5],
@@ -36000,6 +36145,13 @@
       "T": [0, 0, 3, 7],
       "G": "https://psnprofiles.com/guide/3345"
     }
+  },
+  "Grand Theft Auto VI (NPWR21085)": {
+    "id": 43531,
+    "R": [7, 1, 200, 2],
+    "T": [1, 2, 6, 46],
+    "G": "https://www.playstationtrophies.org/game/grand-theft-auto-6/guide/",
+    "G2": "https://www.powerpyx.com/guide/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"
   },
   "Grand Theft Auto: San Andreas (NPWR08691)": {
     "id": 4118,
@@ -37475,7 +37627,7 @@
   },
   "Hades II (NPWR59398)": {
     "id": 41018,
-    "R": [4, 50, 70, 1],
+    "R": [5, 50, 70, 1],
     "T": [1, 2, 11, 36],
     "G": "https://psnprofiles.com/guide/24981"
   },
@@ -37976,6 +38128,18 @@
     "R": [1, 1, 4, 0],
     "T": [1, 6, 10, 8],
     "G": "https://knoef.info/trophy-guides/ps5/heart-of-the-forest-trophy-guide/"
+  },
+  "Heartworm (NPWR62019)": {
+    "id": 42921,
+    "R": [3, 3, 12, 2],
+    "T": [1, 9, 4, 6],
+    "G": "https://psnprofiles.com/guide/26273"
+  },
+  "Heartworm (NPWR62930)": {
+    "id": 42974,
+    "R": [3, 3, 12, 2],
+    "T": [1, 9, 4, 6],
+    "G": "https://psnprofiles.com/guide/26273"
   },
   "Heaven's Vault (NPWR17483)": {
     "id": 8992,
@@ -38535,6 +38699,12 @@
     "T": [1, 4, 4, 38],
     "G": "https://psnprofiles.com/guide/18380"
   },
+  "Herdling (NPWR50411)": {
+    "id": 35801,
+    "R": [2, 1, 6, 0],
+    "T": [1, 7, 5, 18],
+    "G": "trophy-tom/herdling-trophy-guide/"
+  },
   "Here They Lie (NPWR11279)": {
     "id": 5400,
     "R": [2, 1, 4, 1],
@@ -38727,6 +38897,12 @@
     "R": [4, 5, 10, 6],
     "T": [1, 2, 18, 21],
     "G": "https://psnprofiles.com/guide/7191"
+  },
+  "Hidden Cats in Christmas (NPWR57954)": {
+    "id": 39443,
+    "R": [1, 1, 2, 0],
+    "T": [1, 2, 16, 20],
+    "G": "https://knoef.info/trophy-guides/ps5/hidden-cats-in-christmas-trophy-guide/"
   },
   "Hidden Cats in Christmas (NPWR57955)": {
     "id": 39442,
@@ -40345,6 +40521,18 @@
     "T": [1, 4, 14, 12],
     "G": "https://psnprofiles.com/guide/20085"
   },
+  "House 2 (NPWR52833)": {
+    "id": 43229,
+    "R": [4, 5, 8, 0],
+    "T": [1, 7, 4, 18],
+    "G": "https://psnprofiles.com/guide/26321"
+  },
+  "House 2 (NPWR63545)": {
+    "id": 43063,
+    "R": [4, 5, 8, 0],
+    "T": [1, 7, 4, 18],
+    "G": "https://psnprofiles.com/guide/26321"
+  },
   "House Builder (NPWR30444)": {
     "id": 17100,
     "R": [2.5, 1, 8.5, 0],
@@ -40376,6 +40564,7 @@
     "G": "https://psnprofiles.com/guide/10694",
     "G2": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-trophy-guide/",
     "G3": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-garden-dlc-trophy-guide/",
+    "G4": "trophy-tom/house-flipper-trophy-guide/",
     "Dine Out DLC": {
       "R": [2, 1, 7, 0],
       "T": [0, 0, 0, 10],
@@ -40409,6 +40598,7 @@
     "G": "https://psnprofiles.com/guide/10694",
     "G2": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-trophy-guide/",
     "G3": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-garden-dlc-trophy-guide/",
+    "G4": "trophy-tom/house-flipper-trophy-guide/",
     "Dine Out DLC": {
       "R": [2, 1, 7, 0],
       "T": [0, 0, 0, 10],
@@ -40442,6 +40632,7 @@
     "G": "https://psnprofiles.com/guide/10694",
     "G2": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-trophy-guide/",
     "G3": "https://knoef.info/trophy-guides/ps4-guides/house-flipper-garden-dlc-trophy-guide/",
+    "G4": "trophy-tom/house-flipper-trophy-guide/",
     "Dine Out DLC": {
       "R": [2, 1, 7, 0],
       "T": [0, 0, 0, 10],
@@ -40970,6 +41161,12 @@
     "T": [1, 5, 9, 20],
     "G": "https://psnprofiles.com/guide/8735",
     "G2": "https://www.playstationtrophies.org/game/i-am-bread/guide/"
+  },
+  "I Am Cat (NPWR59787)": {
+    "id": 41543,
+    "R": [3, 1, 2, 3],
+    "T": [0, 3, 6, 3],
+    "G": "https://psnprofiles.com/guide/25956"
   },
   "I Am Dead (NPWR22783)": {
     "id": 13624,
@@ -41943,7 +42140,7 @@
   },
   "Inkonbini (NPWR58297)": {
     "id": 41047,
-    "R": [2, 2, 8, 2],
+    "R": [3, 2, 8, 2],
     "T": [1, 3, 15, 19],
     "G": "https://psnprofiles.com/guide/25100",
     "W": "https://psnprofiles.com/guide/25839"
@@ -45976,6 +46173,18 @@
     "G": "https://psnprofiles.com/guide/14328",
     "G2": "https://www.playstationtrophies.org/game/layers-of-fear/guide/"
   },
+  "Laysara: Summit Kingdom (NPWR54960)": {
+    "id": 40006,
+    "R": [5, 1, 80, 0],
+    "T": [1, 4, 13, 20],
+    "G": "https://psnprofiles.com/guide/25578"
+  },
+  "Laysara: Summit Kingdom (NPWR56512)": {
+    "id": 39388,
+    "R": [5, 1, 80, 0],
+    "T": [1, 4, 13, 20],
+    "G": "https://psnprofiles.com/guide/25578"
+  },
   "Lead and Gold: Gangs of the Wild West (NPWR01026)": {
     "id": 283,
     "R": [2, 1, 25, 5],
@@ -47495,7 +47704,8 @@
     "R": [2, 2, 15, 2],
     "T": [1, 4, 15, 10],
     "G": "https://psnprofiles.com/guide/24840",
-    "G2": "https://www.powerpyx.com/guide/life-is-strange-reunion-trophy-guide-roadmap/"
+    "G2": "https://www.powerpyx.com/guide/life-is-strange-reunion-trophy-guide-roadmap/",
+    "G3": "trophy-tom/life-is-strange-reunion-trophy-guide/"
   },
   "Life is Strange: True Colors (NPWR20127)": {
     "id": 13925,
@@ -47504,7 +47714,8 @@
     "G": "https://psnprofiles.com/guide/12910",
     "G2": "https://platget.com/guides/life-is-strange-true-colors-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/life-is-strange-true-colors/guide/",
-    "G4": "https://www.powerpyx.com/guide/life-is-strange-true-colors-trophy-guide-roadmap/"
+    "G4": "https://www.powerpyx.com/guide/life-is-strange-true-colors-trophy-guide-roadmap/",
+    "G5": "trophy-tom/life-is-strange-true-colors-trophy-guide/"
   },
   "Life is Strange: True Colors (NPWR21937)": {
     "id": 13924,
@@ -47513,7 +47724,8 @@
     "G": "https://psnprofiles.com/guide/12910",
     "G2": "https://platget.com/guides/life-is-strange-true-colors-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/life-is-strange-true-colors/guide/",
-    "G4": "https://www.powerpyx.com/guide/life-is-strange-true-colors-trophy-guide-roadmap/"
+    "G4": "https://www.powerpyx.com/guide/life-is-strange-true-colors-trophy-guide-roadmap/",
+    "G5": "trophy-tom/life-is-strange-true-colors-trophy-guide/"
   },
   "Life of Black Tiger (NPWR10717)": {
     "id": 5153,
@@ -48600,7 +48812,8 @@
     "T": [1, 8, 7, 6],
     "G": "https://psnprofiles.com/guide/14910",
     "G2": "https://platget.com/guides/lost-words-beyond-the-page-trophy-guide/",
-    "G3": "https://www.playstationtrophies.org/game/lost-words-beyond-the-page/guide/"
+    "G3": "https://www.playstationtrophies.org/game/lost-words-beyond-the-page/guide/",
+    "G4": "trophy-tom/lost-words-trophy-guide/"
   },
   "Lotus Reverie: First Nexus (NPWR26887)": {
     "id": 14979,
@@ -49190,6 +49403,7 @@
     "G": "https://psnprofiles.com/guide/22996",
     "G2": "https://psnprofiles.com/guide/23776",
     "G3": "https://www.powerpyx.com/guide/mafia-the-old-country-trophy-guide-roadmap/",
+    "G4": "trophy-tom/mafia-the-old-country-trophy-guide/",
     "FREE RIDE DLC": {
       "R": [5, 1, 15, 0],
       "T": [0, 0, 1, 4],
@@ -50336,7 +50550,8 @@
     "T": [1, 4, 9, 28],
     "G": "https://psnprofiles.com/guide/26051",
     "G2": "https://psnprofiles.com/guide/26053",
-    "G3": "https://www.powerpyx.com/guide/marvels-wolverine-trophy-guide-roadmap/",
+    "G3": "https://www.playstationtrophies.org/game/marvels-wolverine/guide/",
+    "G4": "https://www.powerpyx.com/guide/marvels-wolverine-trophy-guide-roadmap/",
     "W": "https://psnprofiles.com/guide/26055"
   },
   "Mary Skelter Finale (NPWR24225)": {
@@ -53415,11 +53630,12 @@
   },
   "Mixtape (NPWR51144)": {
     "id": 41455,
-    "R": [4, 1, 5, 1],
+    "R": [4, 1, 5, 3],
     "T": [1, 6, 12, 8],
     "G": "https://psnprofiles.com/guide/25159",
     "G2": "https://www.playstationtrophies.org/game/mixtape/guide/",
-    "G3": "https://www.powerpyx.com/guide/mixtape-trophy-guide-roadmap/"
+    "G3": "https://www.powerpyx.com/guide/mixtape-trophy-guide-roadmap/",
+    "G4": "trophy-tom/mixtape-trophy-guide/"
   },
   "Mixups by POWGI (NPWR17476)": {
     "id": 8704,
@@ -53652,11 +53868,13 @@
   "Mobile Suit Gundam: Battle Operation (NPWR03396)": {
     "id": 1510,
     "R": [6, 1, 100, 6],
+    "T": [0, 1, 2, 11],
     "G": "https://www.playstationtrophies.org/game/mobile-suit-gundam-battle-operation/guide/"
   },
   "Mobile Suit Gundam: Battle Operation (NPWR04353)": {
     "id": 1910,
     "R": [6, 1, 100, 6],
+    "T": [0, 1, 2, 11],
     "G": "https://www.playstationtrophies.org/game/mobile-suit-gundam-battle-operation/guide/"
   },
   "Mobile Suit Gundam: Battlefield Record U.C.0081 (NPWR00134)": {
@@ -53949,19 +54167,22 @@
     "id": 13858,
     "R": [2, 1, 9, 0],
     "T": [0, 2, 0, 8],
-    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/"
+    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/",
+    "G2": "trophy-tom/monster-harvest-trophy-guide/"
   },
   "Monster Harvest (NPWR21254)": {
     "id": 13857,
     "R": [2, 1, 9, 0],
     "T": [0, 2, 0, 8],
-    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/"
+    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/",
+    "G2": "trophy-tom/monster-harvest-trophy-guide/"
   },
   "Monster Harvest (NPWR25968)": {
     "id": 21110,
     "R": [2, 1, 9, 0],
     "T": [0, 2, 0, 8],
-    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/"
+    "G": "https://www.playstationtrophies.org/game/monster-harvest/guide/",
+    "G2": "trophy-tom/monster-harvest-trophy-guide/"
   },
   "Monster High: New Ghoul in School (NPWR09251)": {
     "id": 4054,
@@ -54844,6 +55065,13 @@
     "T": [1, 6, 16, 2],
     "G": "https://psnprofiles.com/guide/25558"
   },
+  "Mouthwashing (NPWR58003)": {
+    "id": 43297,
+    "R": [2, 1, 1, 1],
+    "T": [1, 8, 8, 0],
+    "G": "https://psnprofiles.com/guide/26304",
+    "G2": "https://psnprofiles.com/guide/26312"
+  },
   "Move Fitness (NPWR01895)": {
     "id": 1209,
     "R": [4, 1, 20, 4],
@@ -55399,7 +55627,7 @@
   },
   "MXGP Pro (NPWR13950)": {
     "id": 7821,
-    "R": [4, 50, 40, 5],
+    "R": [5, 50, 40, 5],
     "T": [1, 3, 5, 42],
     "G": "https://psnprofiles.com/guide/25085",
     "G2": "https://www.playstationtrophies.org/game/mxgp-pro/guide/"
@@ -55943,7 +56171,7 @@
   },
   "Naruto Shippuden: Ultimate Ninja Storm 3 Full Burst (NPWR11630)": {
     "id": 6363,
-    "R": [3, 1, 34, 0],
+    "R": [3, 1, 35, 0],
     "T": [1, 2, 6, 46],
     "G": "https://psnprofiles.com/guide/8332",
     "G2": "https://www.playstationtrophies.org/game/storm/guide/",
@@ -55957,7 +56185,7 @@
     "G2": "https://www.playstationtrophies.org/game/naruto-shippuden-ultimate-ninja-storm-4/guide/",
     "W": "https://www.powerpyx.com/guide/guides/naruto-shippuden-ultimate-ninja-storm-4-trophy-guide.html",
     "ROAD TO BORUTO DLC": {
-      "R": [4, 1, 25, 0],
+      "R": [10, 50, 10, 0],
       "T": [0, 1, 2, 0],
       "G": "https://psnprofiles.com/guide/6837"
     }
@@ -57252,10 +57480,19 @@
   },
   "New Super Lucky's Tale (NPWR20945)": {
     "id": 11190,
-    "R": [4, 1, 15, 0],
+    "R": [4, 1, 10, 1],
     "T": [1, 1, 7, 46],
-    "G": "https://knoef.info/trophy-guides/ps4-guides/new-super-luckys-tale-trophy-guide/",
-    "G2": "https://www.powerpyx.com/guide/new-super-luckys-tale-trophy-guide-roadmap/"
+    "G": "https://psnprofiles.com/guide/25918",
+    "G2": "https://knoef.info/trophy-guides/ps4-guides/new-super-luckys-tale-trophy-guide/",
+    "G3": "https://www.powerpyx.com/guide/new-super-luckys-tale-trophy-guide-roadmap/",
+    "W": "https://psnprofiles.com/guide/25917"
+  },
+  "New Super Lucky's Tale (NPWR57891)": {
+    "id": 40652,
+    "R": [4, 1, 10, 1],
+    "T": [1, 1, 7, 46],
+    "G": "https://psnprofiles.com/guide/25918",
+    "W": "https://psnprofiles.com/guide/25917"
   },
   "New Tales from the Borderlands (NPWR27378)": {
     "id": 18852,
@@ -60332,6 +60569,7 @@
   "Pain (NPWR00196)": {
     "id": 22,
     "R": [9, 1, 45, 0],
+    "T": [0, 1, 1, 6],
     "G": "https://www.playstationtrophies.org/game/pain/guide/"
   },
   "Painkiller: Hell & Damnation (NPWR04227)": {
@@ -60612,6 +60850,18 @@
     "T": [1, 9, 4, 2],
     "G": "https://psnprofiles.com/guide/8974",
     "G2": "https://knoef.info/trophy-guides/ps4-guides/pantsu-hunter-back-to-the-90s-trophy-guide/"
+  },
+  "Panty Party KanSeiTai (NPWR50257)": {
+    "id": 37318,
+    "R": [3, 7, 4, 0],
+    "T": [0, 0, 3, 15],
+    "G": "https://psnprofiles.com/guide/26127"
+  },
+  "Panty Party KanSeiTai (NPWR51331)": {
+    "id": 38355,
+    "R": [3, 7, 4, 0],
+    "T": [0, 0, 3, 15],
+    "G": "https://psnprofiles.com/guide/26127"
   },
   "Paparazzi (NPWR08293)": {
     "id": 3350,
@@ -63030,15 +63280,17 @@
   },
   "Planet of Lana II (NPWR57666)": {
     "id": 40043,
-    "R": [3, 1, 7, 0],
+    "R": [3, 1, 7, 2],
     "T": [1, 6, 10, 8],
-    "G": "https://knoef.info/trophy-guides/ps5/planet-of-lana-ii-trophy-guide/"
+    "G": "https://knoef.info/trophy-guides/ps5/planet-of-lana-ii-trophy-guide/",
+    "G2": "trophy-tom/planet-of-lana-2-trophy-guide/"
   },
   "Planet of Lana II (NPWR57846)": {
     "id": 40045,
-    "R": [3, 1, 7, 0],
+    "R": [3, 1, 7, 2],
     "T": [1, 6, 10, 8],
-    "G": "https://knoef.info/trophy-guides/ps5/planet-of-lana-ii-trophy-guide/"
+    "G": "https://knoef.info/trophy-guides/ps5/planet-of-lana-ii-trophy-guide/",
+    "G2": "trophy-tom/planet-of-lana-2-trophy-guide/"
   },
   "Planet of the Apes: Last Frontier (NPWR13885)": {
     "id": 6875,
@@ -66742,23 +66994,26 @@
     "R": [3, 2, 25, 3],
     "T": [1, 2, 14, 30],
     "G": "https://psnprofiles.com/guide/4315",
+    "G2": "trophy-tom/ratchet-clank-2016-trophy-guide/",
     "W": "https://www.powerpyx.com/guide/guides/ratchet-and-clank-2016-trophy-guide.html"
   },
   "Ratchet & Clank 2: Going Commando (NPWR02346)": {
     "id": 1470,
-    "R": [3, 2, 15, 0],
+    "R": [3, 2, 15, 1],
     "T": [1, 5, 9, 20],
     "G": "https://psnprofiles.com/guide/30",
-    "G2": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd-vita/guide/",
-    "G3": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd/guide/"
+    "G2": "https://psnprofiles.com/guide/23180",
+    "G3": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd-vita/guide/",
+    "G4": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd/guide/"
   },
   "Ratchet & Clank 2: Going Commando (NPWR05786)": {
     "id": 2713,
-    "R": [3, 2, 15, 0],
+    "R": [3, 2, 15, 1],
     "T": [1, 5, 9, 20],
     "G": "https://psnprofiles.com/guide/30",
-    "G2": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd-vita/guide/",
-    "G3": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd/guide/"
+    "G2": "https://psnprofiles.com/guide/23180",
+    "G3": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd-vita/guide/",
+    "G4": "https://www.playstationtrophies.org/game/ratchet-and-clank-going-commando-hd/guide/"
   },
   "Ratchet & Clank 3: Up Your Arsenal (NPWR02347)": {
     "id": 1522,
@@ -66811,7 +67066,8 @@
     "G": "https://psnprofiles.com/guide/12355",
     "G2": "https://platget.com/guides/ratchet-clank-rift-apart-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/ratchet-and-clank-rift-apart/guide/",
-    "G4": "https://www.powerpyx.com/guide/ratchet-clank-rift-apart-trophy-guide-roadmap/"
+    "G4": "https://www.powerpyx.com/guide/ratchet-clank-rift-apart-trophy-guide-roadmap/",
+    "G5": "trophy-tom/ratchet-clank-rift-apart-trophy-guide/"
   },
   "Ratchet & Clank: Size Matters (NPWR36607)": {
     "id": 28313,
@@ -68982,7 +69238,7 @@
   },
   "Ride 6 (NPWR42883)": {
     "id": 39614,
-    "R": [4, 1, 35, 4],
+    "R": [4, 1, 30, 4],
     "T": [1, 2, 11, 36],
     "G": "https://psnprofiles.com/guide/24682"
   },
@@ -70846,6 +71102,24 @@
     "R": [7, 1, 135, 0],
     "T": [1, 0, 8, 50],
     "G": "https://www.playstationtrophies.org/game/stalker-2-heart-of-chornobyl/guide/"
+  },
+  "S.T.A.L.K.E.R.: Clear Sky (NPWR38723)": {
+    "id": 26228,
+    "R": [3, 1, 25, 3],
+    "T": [1, 2, 13, 28],
+    "G": "https://psnprofiles.com/guide/26233"
+  },
+  "S.T.A.L.K.E.R.: Clear Sky (NPWR38724)": {
+    "id": 26243,
+    "R": [3, 1, 25, 3],
+    "T": [1, 2, 13, 28],
+    "G": "https://psnprofiles.com/guide/26233"
+  },
+  "S.T.A.L.K.E.R.: Clear Sky (NPWR42887)": {
+    "id": 33994,
+    "R": [3, 1, 25, 3],
+    "T": [1, 2, 13, 28],
+    "G": "https://psnprofiles.com/guide/26233"
   },
   "S.T.A.L.K.E.R.: Shadow of Chornobyl (NPWR39156)": {
     "id": 26231,
@@ -73967,10 +74241,11 @@
   },
   "Shrek Forever After (NPWR00913)": {
     "id": 319,
-    "R": [2, 1, 10, 0],
+    "R": [3, 2, 12, 0],
     "T": [1, 2, 21, 12],
-    "G": "https://www.playstationtrophies.org/game/shrek-forever-after/guide/",
-    "G2": "https://www.playstationtrophies.org/game/kiss-bell/guide/"
+    "G": "https://psnprofiles.com/guide/26339",
+    "G2": "https://www.playstationtrophies.org/game/shrek-forever-after/guide/",
+    "G3": "https://www.playstationtrophies.org/game/kiss-bell/guide/"
   },
   "Shütshimi (NPWR09057)": {
     "id": 3797,
@@ -74128,6 +74403,13 @@
   "Silence (NPWR09565)": {
     "id": 5555,
     "R": [2, 2, 11, 0],
+    "T": [1, 2, 14, 30],
+    "G": "https://www.playstationtrophies.org/game/silence/guide/"
+  },
+  "Silence (NPWR15286)": {
+    "id": 7386,
+    "R": [2, 2, 11, 0],
+    "T": [1, 2, 14, 30],
     "G": "https://www.playstationtrophies.org/game/silence/guide/"
   },
   "Silent Hill 2 (NPWR30769)": {
@@ -74474,8 +74756,12 @@
     "T": [1, 2, 9, 35],
     "G": "https://psnprofiles.com/guide/9172",
     "G2": "https://www.playstationtrophies.org/game/skate-2/guide/",
+    "G3": "trophy-tom/skate-city-trophy-guide-trick-guide/",
     "W": "https://psnprofiles.com/guide/9216",
-    "W2": "https://psnprofiles.com/guide/9217"
+    "W2": "https://psnprofiles.com/guide/9217",
+    "W3": "trophy-tom/skate-city-barcelona-all-goals-challenges/",
+    "W4": "trophy-tom/skate-city-oslo-all-goals-challenges/",
+    "W5": "trophy-tom/skate-city-la-all-goals-challenges/"
   },
   "Skate 2 (NPWR00630)": {
     "id": 743,
@@ -74483,8 +74769,12 @@
     "T": [1, 2, 9, 35],
     "G": "https://psnprofiles.com/guide/9172",
     "G2": "https://www.playstationtrophies.org/game/skate-2/guide/",
+    "G3": "trophy-tom/skate-city-trophy-guide-trick-guide/",
     "W": "https://psnprofiles.com/guide/9216",
-    "W2": "https://psnprofiles.com/guide/9217"
+    "W2": "https://psnprofiles.com/guide/9217",
+    "W3": "trophy-tom/skate-city-barcelona-all-goals-challenges/",
+    "W4": "trophy-tom/skate-city-oslo-all-goals-challenges/",
+    "W5": "trophy-tom/skate-city-la-all-goals-challenges/"
   },
   "Skate 3 (NPWR01002)": {
     "id": 335,
@@ -74672,6 +74962,20 @@
     "T": [0, 0, 2, 17],
     "G": "https://psnprofiles.com/guide/2923",
     "G2": "https://www.playstationtrophies.org/game/skulls-of-the-shogun-ps4/guide/"
+  },
+  "Skully (NPWR20523)": {
+    "id": 11193,
+    "R": [0, 1, 0, 0],
+    "T": [1, 0, 1, 6],
+    "G": "trophy-tom/skully-trophy-guide/",
+    "W": "trophy-tom/skully-all-collectibles-locations-guide/"
+  },
+  "Skully (NPWR20524)": {
+    "id": 11197,
+    "R": [0, 1, 0, 0],
+    "T": [1, 0, 1, 6],
+    "G": "trophy-tom/skully-trophy-guide/",
+    "W": "trophy-tom/skully-all-collectibles-locations-guide/"
   },
   "Sky Force Anniversary (NPWR10035)": {
     "id": 4522,
@@ -77107,9 +77411,10 @@
   },
   "Spare Parts (NPWR01173)": {
     "id": 733,
-    "R": [3, 1, 6.5, 0],
+    "R": [2, 1, 7, 0],
     "T": [1, 10, 2, 0],
-    "G": "https://www.playstationtrophies.org/game/spare-parts/guide/"
+    "G": "https://psnprofiles.com/guide/26125",
+    "G2": "https://www.playstationtrophies.org/game/spare-parts/guide/"
   },
   "Sparkle 2 (NPWR06509)": {
     "id": 2620,
@@ -77803,7 +78108,8 @@
     "id": 37893,
     "R": [3, 1, 12, 1],
     "T": [1, 7, 6, 13],
-    "G": "https://psnprofiles.com/guide/23881"
+    "G": "https://psnprofiles.com/guide/23881",
+    "G2": "trophy-tom/spongebob-squarepants-titans-of-the-tide-trophy-guide-wip/"
   },
   "SpongeBob: Krusty Cook-Off (NPWR52657)": {
     "id": 34822,
@@ -82213,10 +82519,11 @@
   },
   "Sword of the Sea (NPWR52038)": {
     "id": 35895,
-    "R": [3, 2, 10, 0],
+    "R": [3, 2, 10, 2],
     "T": [1, 3, 8, 36],
     "G": "https://psnprofiles.com/guide/23285",
-    "G2": "https://www.powerpyx.com/guide/sword-of-the-sea-trophy-guide-roadmap/"
+    "G2": "https://www.powerpyx.com/guide/sword-of-the-sea-trophy-guide-roadmap/",
+    "G3": "trophy-tom/sword-of-the-sea-trophy-guide/"
   },
   "Swords & Soldiers 2: Shawarmageddon (NPWR16229)": {
     "id": 8372,
@@ -82895,6 +83202,20 @@
     "G": "https://psnprofiles.com/guide/5701",
     "G2": "https://www.playstationtrophies.org/game/tales-of-berseria/guide/"
   },
+  "Tales of Eternia Remastered (NPWR50747)": {
+    "id": 43066,
+    "R": [5, 2, 50, 2],
+    "T": [1, 2, 10, 37],
+    "G": "https://psnprofiles.com/guide/26227",
+    "W": "https://psnprofiles.com/guide/26228"
+  },
+  "Tales of Eternia Remastered (NPWR50748)": {
+    "id": 43065,
+    "R": [5, 2, 50, 2],
+    "T": [1, 2, 10, 37],
+    "G": "https://psnprofiles.com/guide/26227",
+    "W": "https://psnprofiles.com/guide/26228"
+  },
   "Tales of Graces f (NPWR02812)": {
     "id": 1365,
     "R": [5, 2, 120, 3],
@@ -83276,6 +83597,12 @@
     "R": [3, 1, 6, 0],
     "T": [1, 5, 13, 10],
     "G": "https://knoef.info/trophy-guides/ps4-guides/taxi-chaos-trophy-guide/"
+  },
+  "Taxi Chaos 2 (NPWR53766)": {
+    "id": 39265,
+    "R": [4, 1, 5, 0],
+    "T": [1, 3, 11, 29],
+    "G": "trophy-tom/taxi-chaos-trophy-guide/"
   },
   "Taxi Driver: The Simulation (NPWR23218)": {
     "id": 13080,
@@ -84411,6 +84738,7 @@
   "The Bridge (NPWR08332)": {
     "id": 3773,
     "R": [3.5, 1, 7.5, 0],
+    "T": [0, 0, 1, 19],
     "G": "https://www.playstationtrophies.org/game/the-bridge/guide/"
   },
   "The Bridge Curse 2: The Extrication (NPWR45004)": {
@@ -85101,37 +85429,43 @@
     "id": 13300,
     "R": [2, 1, 3, 0],
     "T": [1, 5, 14, 11],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/",
+    "G2": "trophy-tom/darkside-detective-trophy-guide/"
   },
   "The Darkside Detective (NPWR23806)": {
     "id": 12682,
     "R": [2, 1, 3, 0],
     "T": [1, 5, 14, 11],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/",
+    "G2": "trophy-tom/darkside-detective-trophy-guide/"
   },
   "The Darkside Detective (NPWR23807)": {
     "id": 12684,
     "R": [2, 1, 3, 0],
     "T": [1, 5, 14, 11],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective/guide/",
+    "G2": "trophy-tom/darkside-detective-trophy-guide/"
   },
   "The Darkside Detective Season 2: A Fumble in the Dark (NPWR23344)": {
     "id": 12730,
     "R": [2, 1, 3, 0],
     "T": [1, 7, 8, 8],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/",
+    "G2": "trophy-tom/darkside-detective-2-trophy-guide/"
   },
   "The Darkside Detective Season 2: A Fumble in the Dark (NPWR23907)": {
     "id": 12733,
     "R": [2, 1, 3, 0],
     "T": [1, 7, 8, 8],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/",
+    "G2": "trophy-tom/darkside-detective-2-trophy-guide/"
   },
   "The Darkside Detective Season 2: A Fumble in the Dark (NPWR23908)": {
     "id": 12729,
     "R": [2, 1, 3, 0],
     "T": [1, 7, 8, 8],
-    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/"
+    "G": "https://www.playstationtrophies.org/game/the-darkside-detective-season-2-a-fumble-in-the-dark/guide/",
+    "G2": "trophy-tom/darkside-detective-2-trophy-guide/"
   },
   "The Day I Became a Bird (NPWR57650)": {
     "id": 41079,
@@ -85431,6 +85765,11 @@
       "R": [2, 2, 3, 4],
       "T": [0, 1, 2, 3],
       "G": "https://psnprofiles.com/guide/7123"
+    },
+    "Dungeons And Duct Tape DLC": {
+      "R": [3, 1, 5, 4],
+      "T": [0, 1, 2, 3],
+      "G": "https://psnprofiles.com/guide/26265"
     },
     "Wicked Ward DLC": {
       "R": [3, 1, 5, 4],
@@ -87517,6 +87856,12 @@
     "T": [1, 4, 13, 14],
     "G": "https://psnprofiles.com/guide/26092"
   },
+  "The Occultist (NPWR47873)": {
+    "id": 40887,
+    "R": [3, 1, 6, 2],
+    "T": [1, 7, 7, 10],
+    "G": "trophy-tom/the-occultist-trophy-guide/"
+  },
   "The Onion Knights (NPWR11599)": {
     "id": 5520,
     "R": [2, 1, 55, 0],
@@ -89498,6 +89843,12 @@
     "G2": "https://www.playstationtrophies.org/game/the-wolf-among-us/guide/",
     "G3": "https://www.powerpyx.com/guide/the-wolf-among-us-remastered-trophy-guide-roadmap/"
   },
+  "The Wolf Among Us Remastered (NPWR60952)": {
+    "id": 43292,
+    "R": [1, 1, 12, 2],
+    "T": [1, 5, 7, 26],
+    "G": "https://psnprofiles.com/guide/26300"
+  },
   "The Wonderful 101 (NPWR19775)": {
     "id": 10777,
     "R": [8, 5, 75, 1],
@@ -91126,7 +91477,9 @@
     "T": [1, 4, 13, 19],
     "G": "https://psnprofiles.com/guide/10893",
     "G2": "https://www.playstationtrophies.org/game/tony-hawks-pro-skater-1-2/guide/",
-    "G3": "https://www.powerpyx.com/guide/tony-hawks-pro-skater-1-2-trophy-guide-roadmap/"
+    "G3": "https://www.powerpyx.com/guide/tony-hawks-pro-skater-1-2-trophy-guide-roadmap/",
+    "G4": "trophy-tom/thps12-trophy-guide/",
+    "W": "trophy-tom/thps12-all-park-goals-collectibles-secrets/"
   },
   "Tony Hawk's Pro Skater 1 + 2 (NPWR22176)": {
     "id": 12587,
@@ -91134,7 +91487,9 @@
     "T": [1, 4, 13, 19],
     "G": "https://psnprofiles.com/guide/10893",
     "G2": "https://www.playstationtrophies.org/game/tony-hawks-pro-skater-1-2/guide/",
-    "G3": "https://www.powerpyx.com/guide/tony-hawks-pro-skater-1-2-trophy-guide-roadmap/"
+    "G3": "https://www.powerpyx.com/guide/tony-hawks-pro-skater-1-2-trophy-guide-roadmap/",
+    "G4": "trophy-tom/thps12-trophy-guide/",
+    "W": "trophy-tom/thps12-all-park-goals-collectibles-secrets/"
   },
   "Tony Hawk's Pro Skater 3 + 4 (NPWR39614)": {
     "id": 35040,
@@ -91323,7 +91678,7 @@
   },
   "Tormented Souls 2 (NPWR47459)": {
     "id": 37442,
-    "R": [7, 3, 30, 3],
+    "R": [5, 3, 30, 3],
     "T": [1, 6, 7, 20],
     "G": "https://psnprofiles.com/guide/23561",
     "G2": "https://www.powerpyx.com/guide/tormented-souls-2-trophy-guide-roadmap/",
@@ -91653,7 +92008,8 @@
     "T": [1, 3, 13, 22],
     "G": "https://psnprofiles.com/guide/12141",
     "G2": "https://knoef.info/trophy-guides/ps4-guides/dragon-break-classic/",
-    "W": "https://psnprofiles.com/guide/12177"
+    "W": "https://psnprofiles.com/guide/12177",
+    "W2": "https://psnprofiles.com/guide/26187"
   },
   "Toy Story 3 (NPWR29998)": {
     "id": 27721,
@@ -91667,12 +92023,36 @@
     "T": [1, 5, 19, 2],
     "G": "https://www.playstationtrophies.org/game/toy-story-3/guide/"
   },
+  "Toy Story 3: Complete Edition (NPWR56391)": {
+    "id": 43137,
+    "R": [3, 1, 25, 1],
+    "T": [1, 3, 14, 24],
+    "G": "https://psnprofiles.com/guide/26223"
+  },
+  "Toy Story 3: Complete Edition (NPWR56392)": {
+    "id": 42997,
+    "R": [3, 1, 25, 1],
+    "T": [1, 3, 14, 24],
+    "G": "https://psnprofiles.com/guide/26223"
+  },
   "Toy Story Mania! (NPWR03780)": {
     "id": 1711,
     "R": [2, 1, 5, 0],
     "T": [1, 1, 16, 32],
     "G": "https://psnprofiles.com/guide/11614",
     "G2": "https://www.playstationtrophies.org/game/toy-story-mania/guide/"
+  },
+  "Toy Story: Retro Roundup! (NPWR56389)": {
+    "id": 42953,
+    "R": [4, 11, 10, 0],
+    "T": [1, 10, 3, 3],
+    "G": "https://psnprofiles.com/guide/26251"
+  },
+  "Toy Story: Retro Roundup! (NPWR56390)": {
+    "id": 43099,
+    "R": [4, 11, 10, 0],
+    "T": [1, 10, 3, 3],
+    "G": "https://psnprofiles.com/guide/26251"
   },
   "Toy Stunt Bike: Tiptop's Trials (NPWR16421)": {
     "id": 8424,
@@ -92309,6 +92689,7 @@
   "Trivial Pursuit (NPWR00514)": {
     "id": 66,
     "R": [2.5, 5, 7.5, 0],
+    "T": [1, 2, 14, 28],
     "G": "https://www.playstationtrophies.org/game/trivial-pursuit/guide/"
   },
   "Trivial Pursuit Live! (NPWR06906)": {
@@ -92570,7 +92951,8 @@
     "R": [2, 1, 10, 2],
     "T": [1, 3, 16, 17],
     "G": "https://psnprofiles.com/guide/24224",
-    "G2": "https://www.playstationtrophies.org/game/tunic/guide/",
+    "G2": "https://psnprofiles.com/guide/24344",
+    "G3": "https://www.playstationtrophies.org/game/tunic/guide/",
     "W": "https://psnprofiles.com/guide/19470"
   },
   "Tunic (NPWR30054)": {
@@ -92578,7 +92960,8 @@
     "R": [2, 1, 10, 2],
     "T": [1, 3, 16, 17],
     "G": "https://psnprofiles.com/guide/24224",
-    "G2": "https://www.playstationtrophies.org/game/tunic/guide/",
+    "G2": "https://psnprofiles.com/guide/24344",
+    "G3": "https://www.playstationtrophies.org/game/tunic/guide/",
     "W": "https://psnprofiles.com/guide/19470"
   },
   "Turbo: Super Stunt Squad (NPWR04492)": {
@@ -92733,10 +93116,11 @@
   },
   "Twin Mirror (NPWR15493)": {
     "id": 11937,
-    "R": [2, 2, 10, 1],
+    "R": [2, 2, 10, 3],
     "T": [1, 7, 9, 8],
     "G": "https://psnprofiles.com/guide/13082",
-    "G2": "https://www.playstationtrophies.org/game/twin-mirror/guide/"
+    "G2": "https://www.playstationtrophies.org/game/twin-mirror/guide/",
+    "G3": "trophy-tom/twin-mirror-trophy-guide/"
   },
   "Twin Robots (NPWR13007)": {
     "id": 6619,
@@ -93791,6 +94175,18 @@
     "G2": "https://knoef.info/trophy-guides/ps4-guides/untitled-goose-game-trophy-guide/",
     "G3": "https://www.playstationtrophies.org/game/untitled-goose-game/guide/",
     "G4": "https://www.powerpyx.com/guide/untitled-goose-game-trophy-guide-roadmap/"
+  },
+  "Unto The End (NPWR22603)": {
+    "id": 11962,
+    "R": [7, 1, 3, 2],
+    "T": [1, 11, 0, 0],
+    "G": "trophy-tom/unto-the-end-trophy-guide/"
+  },
+  "Unto The End (NPWR22825)": {
+    "id": 12267,
+    "R": [7, 1, 3, 2],
+    "T": [1, 11, 0, 0],
+    "G": "trophy-tom/unto-the-end-trophy-guide/"
   },
   "Unturned (NPWR21247)": {
     "id": 11675,
@@ -95976,6 +96372,24 @@
     "R": [3, 1, 16, 0],
     "T": [1, 3, 8, 34],
     "G": "https://www.playstationtrophies.org/game/war-tech-fighters/guide/"
+  },
+  "War Thunder (NPWR05884)": {
+    "id": 4038,
+    "R": [8, 1, 500, 5],
+    "T": [0, 1, 3, 9],
+    "G": "https://psnprofiles.com/guide/25681"
+  },
+  "War Thunder (NPWR12994)": {
+    "id": 6091,
+    "R": [8, 1, 500, 5],
+    "T": [0, 1, 3, 9],
+    "G": "https://psnprofiles.com/guide/25681"
+  },
+  "War Thunder (NPWR21955)": {
+    "id": 11798,
+    "R": [8, 1, 500, 5],
+    "T": [0, 1, 3, 9],
+    "G": "https://psnprofiles.com/guide/25681"
   },
   "Warborn (NPWR19919)": {
     "id": 10869,
@@ -99197,10 +99611,11 @@
   },
   "Wuthering Waves (NPWR45613)": {
     "id": 31381,
-    "R": [7, 1, 100, 0],
+    "R": [7, 1, 100, 2],
     "T": [1, 3, 9, 30],
     "G": "https://psnprofiles.com/guide/22707",
     "G2": "https://psnprofiles.com/guide/22736",
+    "G3": "https://videogamelog.com/trophy-guides/fading-echo/",
     "\"All Silent Souls Can Sing\" DLC": {
       "R": [3, 1, 10, 0],
       "T": [0, 0, 0, 10],
@@ -99668,15 +100083,17 @@
   },
   "XIII (NPWR20235)": {
     "id": 11742,
-    "R": [3, 1, 8, 0],
+    "R": [3, 1, 8, 1],
     "T": [1, 4, 9, 26],
-    "G": "https://psnprofiles.com/guide/19847"
+    "G": "https://psnprofiles.com/guide/19847",
+    "G2": "trophy-tom/xiii-trophy-guide/"
   },
   "XIII (NPWR22986)": {
     "id": 17963,
-    "R": [3, 1, 8, 0],
+    "R": [3, 1, 8, 1],
     "T": [1, 4, 9, 26],
-    "G": "https://psnprofiles.com/guide/19847"
+    "G": "https://psnprofiles.com/guide/19847",
+    "G2": "trophy-tom/xiii-trophy-guide/"
   },
   "XING: The Land Beyond (NPWR15031)": {
     "id": 8720,
@@ -100821,6 +101238,12 @@
     "R": [2, 23, 20, 1],
     "T": [1, 8, 5, 6],
     "G": "https://psnprofiles.com/guide/23163"
+  },
+  "Zool Redimensioned (NPWR33874)": {
+    "id": 22014,
+    "R": [3, 2, 8, 4],
+    "T": [0, 5, 10, 10],
+    "G": "https://psnprofiles.com/guide/26061"
   },
   "Zorro: The Chronicles (NPWR28051)": {
     "id": 16580,
@@ -102157,6 +102580,18 @@
     "G2": "https://www.playstationtrophies.org/game/sword-art-online-na/guide/",
     "W": "https://psnprofiles.com/guide/4980"
   },
+  "タイムアベンジャー (NPWR07597)": {
+    "id": 3274,
+    "R": [4, 2, 27.5, 2],
+    "T": [0, 1, 2, 11],
+    "G": "https://www.playstationtrophies.org/game/aeterno-blade/guide/"
+  },
+  "タイムアベンジャー (NPWR10274)": {
+    "id": 4620,
+    "R": [4, 2, 27.5, 2],
+    "T": [0, 1, 2, 11],
+    "G": "https://www.playstationtrophies.org/game/aeterno-blade/guide/"
+  },
   "タコリタ・ミーツ・ポテト (NPWR25858)": {
     "id": 14186,
     "R": [1, 1, 1, 0],
@@ -103214,6 +103649,7 @@
   "侍道３plus (NPWR00884)": {
     "id": 984,
     "R": [3, 5, 5, 0],
+    "T": [1, 1, 5, 54],
     "G": "https://www.playstationtrophies.org/game/way-of-the-samurai-3-plus/guide/"
   },
   "信長の野望･創造 (NPWR05260)": {
@@ -104724,6 +105160,7 @@
   "街ingメーカー４ (NPWR02343)": {
     "id": 1211,
     "R": [2, 1, 18, 0],
+    "T": [1, 3, 6, 40],
     "G": "https://www.playstationtrophies.org/game/machi-ing-maker-4/guide/"
   },
   "街霸V (NPWR15167)": {
